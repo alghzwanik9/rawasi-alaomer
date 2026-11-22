@@ -5,75 +5,137 @@ import Link from "next/link";
 import {
   BookOpenCheck,
   Plus,
-  Filter,
   CheckCircle2,
   Clock,
   FileEdit,
   ExternalLink,
-  ShieldCheck,
   Scale,
-  Sparkles,
-  AlertCircle,
-  FileText,
   Search,
+  RefreshCw,
+  RotateCcw,
+  X,
 } from "lucide-react";
 import { SEEDED_CMS_ITEMS, MarjeaCmsItem } from "@/data/portalSeed";
 import { DEMO_USERS, getCurrentUser, UserProfile } from "@/data/portalAuth";
 
 export default function MarjeaCmsPage() {
   const [items, setItems] = useState<MarjeaCmsItem[]>(SEEDED_CMS_ITEMS);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMutating, setIsMutating] = useState(false);
   const [currentUser, setCurrentUser] = useState<UserProfile>(
     DEMO_USERS.super_admin
   );
   const [statusFilter, setStatusFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [successToast, setSuccessToast] = useState("");
+  const [showNewModal, setShowNewModal] = useState(false);
+  const [newCode, setNewCode] = useState("");
+  const [newTitle, setNewTitle] = useState("");
+  const [newCategory, setNewCategory] = useState("الحوكمة واللوائح");
+  const [newCategoryId, setNewCategoryId] = useState("governance");
+  const [newNotes, setNewNotes] = useState("");
 
   useEffect(() => {
     setCurrentUser(getCurrentUser());
-    const onRoleChange = () => setCurrentUser(getCurrentUser());
+    fetchCmsItems();
+    const onRoleChange = () => {
+      setCurrentUser(getCurrentUser());
+      fetchCmsItems();
+    };
     window.addEventListener("rao-role-changed", onRoleChange);
     return () => window.removeEventListener("rao-role-changed", onRoleChange);
   }, []);
 
   const showToast = (msg: string) => {
     setSuccessToast(msg);
-    setTimeout(() => setSuccessToast(""), 3000);
+    setTimeout(() => setSuccessToast(""), 3500);
   };
 
-  // Maker action: submit draft to review
-  const handleSubmitForReview = (itemId: string) => {
-    setItems((prev) =>
-      prev.map((item) =>
-        item.id === itemId
-          ? {
-              ...item,
-              status: "in_review",
-              lastModified: "اليوم (تم الرفع للمراجعة)",
-              notes: "تم رفع المسودة إلى مراجع الحوكمة للتدقيق النظامي.",
-            }
-          : item
-      )
-    );
-    showToast("تم رفع المسودة بنجاح إلى مراجع الحوكمة (Checker).");
+  const fetchCmsItems = async () => {
+    setIsLoading(true);
+    try {
+      const res = await fetch("/api/marjea", { cache: "no-store" });
+      const data = await res.json();
+      if (data.success && Array.isArray(data.items)) {
+        setItems(data.items);
+      }
+    } catch (e) {
+      console.error("Failed to fetch Marjea CMS items:", e);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  // Checker action: approve publication
-  const handleApprovePublication = (itemId: string) => {
-    setItems((prev) =>
-      prev.map((item) =>
-        item.id === itemId
-          ? {
-              ...item,
-              status: "published",
-              checkerName: currentUser.name,
-              lastModified: "اليوم (معتمد رسمياً)",
-              notes: "تمت المصادقة والاعتماد النظامي للنشر في المرجع.",
-            }
-          : item
-      )
-    );
-    showToast("تم اعتماد ونشر الإجراء في مرجع الجمعيات رسمياً!");
+  const handleWorkflowAction = async (
+    itemId: string,
+    action: "submit_for_review" | "approve_publish" | "return_to_draft"
+  ) => {
+    setIsMutating(true);
+    try {
+      const res = await fetch("/api/marjea", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: itemId, action }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        showToast(data.error || "تعذر تنفيذ الإجراء في قاعدة البيانات.");
+        return;
+      }
+
+      setItems((prev) =>
+        prev.map((item) => (item.id === itemId ? data.item : item))
+      );
+
+      if (action === "submit_for_review") {
+        showToast("تم رفع المسودة وحفظها في Supabase لمراجع الحوكمة (Checker).");
+      } else if (action === "approve_publish") {
+        showToast("تم اعتماد ونشر الإجراء في قاعدة بيانات Supabase رسمياً!");
+      } else {
+        showToast("تمت إعادة الدليل إلى حالة المسودة في قاعدة البيانات.");
+      }
+    } catch (e) {
+      console.error("Workflow action failed:", e);
+      showToast("حدث خطأ أثناء الاتصال بالخادم.");
+    } finally {
+      setIsMutating(false);
+    }
+  };
+
+  const handleCreateDraft = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newTitle.trim()) return;
+    setIsMutating(true);
+    try {
+      const res = await fetch("/api/marjea", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          code:
+            newCode.trim() || `GOV-DRF-${Math.floor(10 + Math.random() * 89)}`,
+          title: newTitle.trim(),
+          category: newCategory,
+          categoryId: newCategoryId,
+          notes: newNotes.trim(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        showToast(data.error || "تعذر إنشاء المسودة.");
+        return;
+      }
+
+      setItems((prev) => [data.item, ...prev]);
+      setShowNewModal(false);
+      setNewCode("");
+      setNewTitle("");
+      setNewNotes("");
+      showToast("تم إنشاء مسودة الدليل وحفظها في جدول marjea_procedures بنجاح!");
+    } catch (e) {
+      console.error("Failed to create draft:", e);
+    } finally {
+      setIsMutating(false);
+    }
   };
 
   const filteredItems = items.filter((item) => {
@@ -148,18 +210,42 @@ export default function MarjeaCmsPage() {
             </span>
           </div>
           <p className="text-xs text-[#526071]">
-            نظام الاعتماد المزدوج الصارم: صانع المحتوى (Maker) يُعد المسودة، ومراجع الحوكمة (Checker) يعتمد النشر.
+            نظام الاعتماد المزدوج المتصل مباشرة بجدول{" "}
+            <code className="font-mono">marjea_procedures</code> وسجل{" "}
+            <code className="font-mono">cms_workflow_logs</code> في Supabase.
           </p>
         </div>
 
-        <Link
-          href="/marjea"
-          target="_blank"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#E2ECF5] text-xs font-bold text-[#163063] hover:bg-[#F2F8FC] transition-colors self-start md:self-auto"
-        >
-          <span>معاينة المرجع في الموقع العام</span>
-          <ExternalLink className="w-3.5 h-3.5" />
-        </Link>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            onClick={fetchCmsItems}
+            className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-white border border-[#E2ECF5] text-xs font-bold text-[#163063] hover:bg-[#F2F8FC] transition-colors"
+          >
+            <RefreshCw
+              className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`}
+            />
+            <span>مزامنة من Supabase</span>
+          </button>
+
+          {isMaker && (
+            <button
+              onClick={() => setShowNewModal(true)}
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#163063] hover:bg-[#2360A5] text-white text-xs font-bold transition-colors shadow-xs"
+            >
+              <Plus className="w-4 h-4" />
+              <span>إنشاء مسودة دليل جديد</span>
+            </button>
+          )}
+
+          <Link
+            href="/marjea"
+            target="_blank"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#E2ECF5] text-xs font-bold text-[#163063] hover:bg-[#F2F8FC] transition-colors"
+          >
+            <span>معاينة المرجع العام</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </div>
 
       {/* MAKER-CHECKER ROLE BADGE BANNER */}
@@ -172,15 +258,19 @@ export default function MarjeaCmsPage() {
             </span>{" "}
             {currentUser.role === "marjea_editor" ? (
               <span className="text-[#2360A5]">
-                أنت <strong>صانع المعرفة (Maker)</strong>: يمكنك إنشاء مسودات جديدة ورفعها للمراجعة، ولا يمكنك النشر المباشر دون مصادقة الحوكمة.
+                أنت <strong>صانع المعرفة (Maker)</strong>: يمكنك إنشاء مسودات
+                جديدة ورفعها للمراجعة، ولا يمكنك النشر المباشر دون مصادقة
+                الحوكمة.
               </span>
             ) : currentUser.role === "governance_reviewer" ? (
               <span className="text-emerald-700 font-bold">
-                أنت <strong>مراجع الحوكمة (Checker)</strong>: تملك صلاحية تدقيق المسودات واعتماد نشرها للجمهور بمرجع الجمعيات.
+                أنت <strong>مراجع الحوكمة (Checker)</strong>: تملك صلاحية تدقيق
+                المسودات واعتماد نشرها للجمهور بمرجع الجمعيات.
               </span>
             ) : currentUser.role === "super_admin" ? (
               <span className="text-[#163063]">
-                أنت <strong>المدير العام (super_admin)</strong>: تملك صلاحية التحرير والاعتماد المزدوج الفوري.
+                أنت <strong>المدير العام (super_admin)</strong>: تملك صلاحية
+                التحرير والاعتماد المزدوج الفوري.
               </span>
             ) : (
               <span className="text-[#526071]">
@@ -280,7 +370,9 @@ export default function MarjeaCmsPage() {
                       </span>
                     )}
                   </td>
-                  <td className="py-3.5 px-4 text-[#526071]">{item.lastModified}</td>
+                  <td className="py-3.5 px-4 text-[#526071]">
+                    {item.lastModified}
+                  </td>
 
                   {/* Actions based on role and status */}
                   <td className="py-3.5 px-4 text-center">
@@ -288,26 +380,44 @@ export default function MarjeaCmsPage() {
                       {/* If Draft & user can make -> Submit to Review */}
                       {item.status === "draft" && isMaker && (
                         <button
-                          onClick={() => handleSubmitForReview(item.id)}
-                          className="px-2.5 py-1 rounded-lg bg-[#2360A5] hover:bg-[#163063] text-white font-bold text-[11px] transition-colors shadow-xs"
+                          disabled={isMutating}
+                          onClick={() =>
+                            handleWorkflowAction(item.id, "submit_for_review")
+                          }
+                          className="px-2.5 py-1 rounded-lg bg-[#2360A5] hover:bg-[#163063] disabled:opacity-50 text-white font-bold text-[11px] transition-colors shadow-xs"
                         >
                           رفع للمراجعة
                         </button>
                       )}
 
-                      {/* If In Review & user can check -> Approve to Published */}
+                      {/* If In Review & user can check -> Approve or Return */}
                       {item.status === "in_review" && isChecker && (
-                        <button
-                          onClick={() => handleApprovePublication(item.id)}
-                          className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] transition-colors shadow-xs"
-                        >
-                          اعتماد ونشر
-                        </button>
+                        <>
+                          <button
+                            disabled={isMutating}
+                            onClick={() =>
+                              handleWorkflowAction(item.id, "approve_publish")
+                            }
+                            className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-bold text-[11px] transition-colors shadow-xs"
+                          >
+                            اعتماد ونشر
+                          </button>
+                          <button
+                            disabled={isMutating}
+                            onClick={() =>
+                              handleWorkflowAction(item.id, "return_to_draft")
+                            }
+                            title="إعادة للمحرر"
+                            className="p-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200"
+                          >
+                            <RotateCcw className="w-3.5 h-3.5" />
+                          </button>
+                        </>
                       )}
 
                       {/* View Link */}
                       <Link
-                        href={`/marjea`}
+                        href="/marjea"
                         target="_blank"
                         className="p-1 rounded-lg hover:bg-[#F2F8FC] text-[#526071] hover:text-[#163063]"
                         title="معاينة في الموقع"
@@ -322,6 +432,115 @@ export default function MarjeaCmsPage() {
           </table>
         </div>
       </div>
+
+      {/* Create New Draft Modal */}
+      {showNewModal && (
+        <div className="fixed inset-0 bg-[#163063]/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl border border-[#E2ECF5] max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E2ECF5] pb-3">
+              <h3 className="text-base font-extrabold text-[#163063]">
+                إنشاء مسودة دليل إجرائي جديد (Supabase Live)
+              </h3>
+              <button
+                onClick={() => setShowNewModal(false)}
+                className="text-[#526071] hover:text-[#163063]"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <form onSubmit={handleCreateDraft} className="space-y-3 text-xs">
+              <div>
+                <label className="block font-bold text-[#163063] mb-1">
+                  رمز الإجراء (اختياري):
+                </label>
+                <input
+                  type="text"
+                  dir="ltr"
+                  value={newCode}
+                  onChange={(e) => setNewCode(e.target.value)}
+                  placeholder="GOV-NEW-08"
+                  className="w-full px-3 py-2 rounded-xl border border-[#E2ECF5] text-[#163063]"
+                />
+              </div>
+
+              <div>
+                <label className="block font-bold text-[#163063] mb-1">
+                  عنوان الدليل الإجرائي:
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={newTitle}
+                  onChange={(e) => setNewTitle(e.target.value)}
+                  placeholder="مثال: ضوابط التعاقد مع المكاتب المحاسبية المعتمدة"
+                  className="w-full px-3 py-2 rounded-xl border border-[#E2ECF5] text-[#163063]"
+                />
+              </div>
+
+              <div>
+                <label className="block font-bold text-[#163063] mb-1">
+                  التصنيف المعرفي:
+                </label>
+                <select
+                  value={newCategoryId}
+                  onChange={(e) => {
+                    const id = e.target.value;
+                    setNewCategoryId(id);
+                    const map: Record<string, string> = {
+                      governance: "الحوكمة واللوائح",
+                      licensing: "التأسيس والتراخيص",
+                      finance: "المالية والمصارف",
+                      fundraising: "جمع التبرعات وتنمية الموارد",
+                      digital: "المنصات الحكومية والرقمية",
+                      awqaf: "الأوقاف والوصايا",
+                    };
+                    setNewCategory(map[id] || "الحوكمة واللوائح");
+                  }}
+                  className="w-full px-3 py-2 rounded-xl border border-[#E2ECF5] text-[#163063]"
+                >
+                  <option value="governance">الحوكمة واللوائح</option>
+                  <option value="licensing">التأسيس والتراخيص</option>
+                  <option value="finance">المالية والمصارف</option>
+                  <option value="fundraising">جمع التبرعات وتنمية الموارد</option>
+                  <option value="digital">المنصات الحكومية والرقمية</option>
+                  <option value="awqaf">الأوقاف والوصايا</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block font-bold text-[#163063] mb-1">
+                  ملخص وملاحظات التحرير:
+                </label>
+                <textarea
+                  rows={2}
+                  value={newNotes}
+                  onChange={(e) => setNewNotes(e.target.value)}
+                  placeholder="نبذة مختصرة عن الإجراء والمرجعية النظامية..."
+                  className="w-full px-3 py-2 rounded-xl border border-[#E2ECF5] text-[#163063]"
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowNewModal(false)}
+                  className="px-4 py-2 rounded-xl border border-[#E2ECF5] text-[#526071] font-bold"
+                >
+                  إلغاء
+                </button>
+                <button
+                  type="submit"
+                  disabled={isMutating}
+                  className="px-4 py-2 rounded-xl bg-[#163063] hover:bg-[#2360A5] text-white font-bold"
+                >
+                  {isMutating ? "جاري الحفظ..." : "حفظ المسودة في Supabase"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

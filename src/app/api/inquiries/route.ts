@@ -357,6 +357,25 @@ export async function POST(req: NextRequest) {
         if (!error) {
           record = { ...record, id: String(data.id) };
           source = "supabase";
+          await supabase.from("lead_timeline_events").insert({
+            inquiry_id: data.id,
+            from_status: null,
+            to_status: "new",
+            actor: contactName || "بوابة تأهيل المشاريع (/start-project)",
+            comment: `استلام طلب تأهيل مشروع جديد (${record.refId}) من ${entityName || record.entityTypeName}`,
+          });
+          await supabase.from("audit_logs").insert({
+            user_email: contactEmail || "public_visitor",
+            action: "INQUIRY_SUBMITTED",
+            resource_type: "inquiries",
+            resource_id: record.refId,
+            details: {
+              ref_id: record.refId,
+              entity_type: entityType,
+              city,
+              services,
+            },
+          });
           break;
         }
         if (error.code === "23505") {
@@ -506,6 +525,27 @@ export async function PATCH(req: NextRequest) {
         );
       }
       if (data) {
+        if (status) {
+          await supabase.from("lead_timeline_events").insert({
+            inquiry_id: data.id,
+            from_status: index !== -1 ? inquiries[index]?.status : null,
+            to_status: status,
+            actor: staffUser.name,
+            comment: `تحديث حالة الطلب (${data.ref_id}) إلى ${status} بواسطة ${staffUser.name}`,
+          });
+        }
+        await supabase.from("audit_logs").insert({
+          user_email: staffUser.email,
+          action: "INQUIRY_UPDATED",
+          resource_type: "inquiries",
+          resource_id: data.ref_id,
+          details: {
+            ref_id: data.ref_id,
+            status: status ?? data.status,
+            assigned_to: assignedTo ?? data.assigned_to,
+            actor: staffUser.name,
+          },
+        });
         return NextResponse.json({
           success: true,
           inquiry: mapSupabaseRowToInquiry(data),

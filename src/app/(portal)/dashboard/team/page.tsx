@@ -36,9 +36,27 @@ export default function TeamPage() {
   const [newRole, setNewRole] = useState("sector_manager");
   const [newDept, setNewDept] = useState("المشاريع والتطوير");
 
+  const [isSaving, setIsSaving] = useState(false);
+
+  const fetchStaffMembers = async () => {
+    try {
+      const res = await fetch("/api/staff", { cache: "no-store" });
+      const data = await res.json();
+      if (data.success && Array.isArray(data.members)) {
+        setMembers(data.members);
+      }
+    } catch (e) {
+      console.error("Failed to fetch staff profiles:", e);
+    }
+  };
+
   useEffect(() => {
     setCurrentUser(getCurrentUser());
-    const onRoleChange = () => setCurrentUser(getCurrentUser());
+    fetchStaffMembers();
+    const onRoleChange = () => {
+      setCurrentUser(getCurrentUser());
+      fetchStaffMembers();
+    };
     window.addEventListener("rao-role-changed", onRoleChange);
     return () => window.removeEventListener("rao-role-changed", onRoleChange);
   }, []);
@@ -53,33 +71,33 @@ export default function TeamPage() {
     }
   };
 
-  const handleAddMember = (e: React.FormEvent) => {
+  const handleAddMember = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newName || !newEmail) return;
-
-    const newMember: TeamMember = {
-      id: `tm_${Date.now()}`,
-      name: newName,
-      email: newEmail,
-      role:
-        newRole === "sector_manager"
-          ? "مدير قطاع / مبيعات"
-          : newRole === "marjea_editor"
-          ? "محرر المعرفة (Maker)"
-          : newRole === "governance_reviewer"
-          ? "مراجع الحوكمة (Checker)"
-          : "المدير العام",
-      roleId: newRole,
-      department: newDept,
-      status: "نشط",
-      accessScope: "صلاحيات مخصصة للقسم المحدد",
-      lastLogin: "تم الإنشاء حديثاً",
-    };
-
-    setMembers([...members, newMember]);
-    setShowAddModal(false);
-    setNewName("");
-    setNewEmail("");
+    setIsSaving(true);
+    try {
+      const res = await fetch("/api/staff", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: newName,
+          email: newEmail,
+          roleId: newRole,
+          department: newDept,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success && data.member) {
+        setMembers((prev) => [...prev, data.member]);
+        setShowAddModal(false);
+        setNewName("");
+        setNewEmail("");
+      }
+    } catch (err) {
+      console.error("Failed to create staff member:", err);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (

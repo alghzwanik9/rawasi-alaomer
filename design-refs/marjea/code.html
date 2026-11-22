@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>رواسي العمر - مرجع الجمعيات</title>
+<!-- Google Fonts: IBM Plex Sans Arabic -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#163063',       /* Deep Royal Navy */
+              corporate: '#2360A5',  /* Classic Corporate Blue */
+              sky: '#3488C4',        /* Bright Sky Cerulean */
+              teal: '#47A3B8',       /* Soft Turquoise Teal */
+              ice: '#F2F8FC',        /* Pale Ice Surface */
+              border: '#E2ECF5'      /* Delicate Border Line */
+            }
+          },
+          fontFamily: {
+            sans: ['"IBM Plex Sans Arabic"', 'Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Global Custom Styles -->
+<style data-purpose="typography">
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: #FFFFFF;
+      color: #163063;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style data-purpose="decorative-patterns">
+    /* Subtle geometric grid background pattern for the Hero section */
+    .hero-pattern {
+      background-color: #F2F8FC;
+      background-image: radial-gradient(#3488C4 0.65px, transparent 0.65px), radial-gradient(#2360A5 0.65px, #F2F8FC 0.65px);
+      background-size: 26px 26px;
+      background-position: 0 0, 13px 13px;
+      background-opacity: 0.15;
+    }
+  </style>
+</head>
+<body class="bg-white text-brand-navy antialiased selection:bg-brand-sky selection:text-white">
+<!-- BEGIN: StickyTopNavbar -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Right: Official Logo Component -->
+<div class="flex-shrink-0 flex items-center">
+<a aria-label="الصفحة الرئيسية لرواسي العمر" class="block" href="#">
+<svg class="h-12 w-auto" fill="none" height="52" viewbox="0 0 540 120" width="230" xmlns="http://www.w3.org/2000/svg">
+<!-- Arch & 3 Ascending Pillars Symbol -->
+<g transform="translate(10, 10)">
+<!-- Outer Royal Navy Arch (#163063) -->
+<path d="M 15 100 L 15 45 C 15 20, 35 5, 55 5 C 75 5, 95 20, 95 45 L 95 100" fill="none" stroke="#163063" stroke-linecap="round" stroke-width="9"></path>
+<!-- Pillar 1: Classic Corporate Blue (#2360A5) -->
+<rect fill="#2360A5" height="45" rx="4.5" width="9" x="30" y="55"></rect>
+<!-- Pillar 2: Bright Sky Cerulean (#3488C4) -->
+<rect fill="#3488C4" height="62" rx="4.5" width="9" x="50" y="38"></rect>
+<!-- Pillar 3: Soft Turquoise Teal (#47A3B8) -->
+<rect fill="#47A3B8" height="76" rx="4.5" width="9" x="70" y="24"></rect>
+</g>
+<!-- Arabic Brand Typography & Subtitle -->
+<g transform="translate(130, 20)">
+<text fill="#163063" font-family="'IBM Plex Sans Arabic', 'Cairo', 'Segoe UI', sans-serif" font-size="38" font-weight="800" letter-spacing="-0.5" x="0" y="45">رواسي العمر</text>
+<text fill="#3488C4" font-family="'IBM Plex Sans Arabic', 'Cairo', 'Segoe UI', sans-serif" font-size="14" font-weight="600" letter-spacing="1" x="2" y="74">منظومة التطوير والاستدامة والتنفيذ</text>
+</g>
+</svg>
+</a>
+</div>
+<!-- Center: Primary Navigation Links -->
+<nav aria-label="القائمة الرئيسية" class="hidden lg:flex items-center space-x-reverse space-x-7">
+<a class="text-sm font-semibold text-brand-navy hover:text-brand-corporate transition-colors py-2" href="#">الرئيسية</a>
+<a class="text-sm font-semibold text-brand-navy/80 hover:text-brand-corporate transition-colors py-2" href="#">من نحن</a>
+<a class="text-sm font-semibold text-brand-navy/80 hover:text-brand-corporate transition-colors py-2" href="#">قطاعاتنا الخمسة</a>
+<a class="text-sm font-semibold text-brand-navy/80 hover:text-brand-corporate transition-colors py-2" href="#">القطاع غير الربحي</a>
+<!-- Active Nav Tab: مرجع الجمعيات -->
+<a class="relative text-sm font-bold text-brand-corporate py-2 px-3 bg-brand-ice rounded-md border-b-2 border-brand-corporate" href="#">
+            مرجع الجمعيات
+          </a>
+<a class="text-sm font-semibold text-brand-navy/80 hover:text-brand-corporate transition-colors py-2" href="#">الأثر</a>
+</nav>
+<!-- Left: Portal Link & Direct Action CTA -->
+<div class="flex items-center space-x-reverse space-x-4">
+<a class="hidden sm:inline-flex text-xs md:text-sm font-medium text-brand-corporate hover:text-brand-navy transition-colors" href="#">
+            بوابة الموظفين
+          </a>
+<a class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-brand-navy hover:bg-brand-corporate shadow-sm hover:shadow transition-all duration-200" href="#">
+            ابدأ مشروعك
+          </a>
+</div>
+</div>
+</div>
+</header>
+<!-- END: StickyTopNavbar -->
+<!-- BEGIN: HeroKnowledgeBaseHeader -->
+<section class="hero-pattern border-b border-brand-border py-16 lg:py-20 relative overflow-hidden" data-purpose="knowledge-base-hero">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+<!-- Top Pill Tag -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-border shadow-xs mb-6">
+<span class="w-2 h-2 rounded-full bg-brand-teal"></span>
+<span class="text-xs font-bold text-brand-corporate tracking-wide">المنصة الإجرائية والمعرفية للقطاع غير الربحي</span>
+</div>
+<!-- Main Titles -->
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-navy mb-3 tracking-tight">
+        مرجع الجمعيات
+      </h1>
+<p class="text-xl sm:text-2xl font-semibold text-brand-sky mb-4">
+        من السؤال المتكرر... إلى المعرفة المستدامة
+      </p>
+<p class="max-w-3xl mx-auto text-base sm:text-lg text-brand-navy/75 leading-relaxed mb-10">
+        دليلك الإجرائي الشامل لتأسيس وتشغيل وحوكمة الجمعيات الأهلية والأوقاف في المملكة، وفق أحدث تنظيمات المركز الوطني لتنمية القطاع غير الربحي.
+      </p>
+<!-- Prominent Search Bar Card -->
+<div class="max-w-3xl mx-auto bg-white p-2.5 sm:p-3 rounded-2xl shadow-xl shadow-brand-navy/5 border border-brand-corporate/25 mb-8">
+<form action="#" class="flex flex-col sm:flex-row items-center gap-2.5" method="GET" role="search">
+<div class="relative w-full flex items-center">
+<span class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-brand-corporate">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 21l-4.35-4.35M16.65 11a5.65 5.65 0 11-11.3 0 5.65 5.65 0 0111.3 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<input class="w-full pl-16 pr-12 py-3.5 bg-transparent border-0 text-sm md:text-base text-brand-navy placeholder:text-brand-navy/40 focus:ring-0 focus:outline-none" name="query" placeholder="ابحث عن إجراء أو نموذج... مثل: كيف أعقد جمعية عمومية عادية؟" type="text"/>
+<!-- Keyboard Shortcut Hint -->
+<span class="absolute left-3 top-1/2 -translate-y-1/2 hidden md:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-brand-ice border border-brand-border text-brand-navy/60">
+              Ctrl + K
+            </span>
+</div>
+<button class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-navy text-white text-sm font-bold hover:bg-brand-corporate transition-colors shrink-0 shadow-sm" type="submit">
+            بحث في المرجع
+          </button>
+</form>
+</div>
+<!-- Quick Action Pills ("ابدأ من هنا") -->
+<div class="flex flex-col items-center">
+<span class="text-xs font-bold text-brand-navy/60 uppercase tracking-wider mb-3">ابدأ من هنا (الإجراءات الأكثر طلباً):</span>
+<div class="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl">
+<a class="inline-flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-brand-ice border border-brand-border hover:border-brand-corporate rounded-xl text-xs sm:text-sm font-semibold text-brand-navy shadow-xs transition-all" href="#">
+<svg class="w-4 h-4 text-brand-corporate" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            تأسيس جمعية أهلية
+          </a>
+<a class="inline-flex items-center gap-2 px-3.5 py-2 bg-brand-ice border border-brand-corporate/40 rounded-xl text-xs sm:text-sm font-bold text-brand-corporate shadow-xs transition-all" href="#">
+<svg class="w-4 h-4 text-brand-corporate" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            عقد جمعية عمومية
+          </a>
+<a class="inline-flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-brand-ice border border-brand-border hover:border-brand-corporate rounded-xl text-xs sm:text-sm font-semibold text-brand-navy shadow-xs transition-all" href="#">
+<svg class="w-4 h-4 text-brand-sky" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            انتخاب مجلس إدارة
+          </a>
+<a class="inline-flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-brand-ice border border-brand-border hover:border-brand-corporate rounded-xl text-xs sm:text-sm font-semibold text-brand-navy shadow-xs transition-all" href="#">
+<svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            فتح حساب بنكي رسمي
+          </a>
+<a class="inline-flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-brand-ice border border-brand-border hover:border-brand-corporate rounded-xl text-xs sm:text-sm font-semibold text-brand-navy shadow-xs transition-all" href="#">
+<svg class="w-4 h-4 text-brand-sky" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            التسجيل في منصة إحسان
+          </a>
+<a class="inline-flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-brand-ice border border-brand-border hover:border-brand-corporate rounded-xl text-xs sm:text-sm font-semibold text-brand-navy shadow-xs transition-all" href="#">
+<svg class="w-4 h-4 text-brand-corporate" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            تصاريح جمع التبرعات
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroKnowledgeBaseHeader -->
+<!-- BEGIN: MainContentContainer -->
+<main class="max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+<!-- Categories & Filter Pills Bar -->
+<div class="flex items-center justify-between overflow-x-auto pb-4 mb-6 border-b border-brand-border scrollbar-none" data-purpose="category-filters">
+<div class="flex items-center gap-2 min-w-max">
+<button class="px-4 py-2 rounded-lg text-xs md:text-sm font-bold bg-white text-brand-navy/70 hover:text-brand-corporate hover:bg-brand-ice transition-colors">
+          كافة الإجراءات
+        </button>
+<button class="px-4 py-2 rounded-lg text-xs md:text-sm font-bold bg-white text-brand-navy/70 hover:text-brand-corporate hover:bg-brand-ice transition-colors">
+          التأسيس والتراخيص
+        </button>
+<button class="px-4 py-2 rounded-lg text-xs md:text-sm font-bold bg-brand-corporate text-white shadow-xs">
+          الحوكمة واللوائح
+        </button>
+<button class="px-4 py-2 rounded-lg text-xs md:text-sm font-bold bg-white text-brand-navy/70 hover:text-brand-corporate hover:bg-brand-ice transition-colors">
+          المالية والمصارف
+        </button>
+<button class="px-4 py-2 rounded-lg text-xs md:text-sm font-bold bg-white text-brand-navy/70 hover:text-brand-corporate hover:bg-brand-ice transition-colors">
+          الموارد البشرية
+        </button>
+<button class="px-4 py-2 rounded-lg text-xs md:text-sm font-bold bg-white text-brand-navy/70 hover:text-brand-corporate hover:bg-brand-ice transition-colors">
+          المبادرات والمشاريع
+        </button>
+</div>
+</div>
+<!-- Breadcrumb Hierarchy -->
+<nav aria-label="مسار التصفح" class="flex text-xs md:text-sm text-brand-navy/60 mb-8">
+<ol class="inline-flex items-center space-x-reverse space-x-2">
+<li>
+<a class="hover:text-brand-corporate transition-colors" href="#">الرئيسية</a>
+</li>
+<li><span class="text-brand-border">/</span></li>
+<li>
+<a class="hover:text-brand-corporate transition-colors" href="#">مرجع الجمعيات</a>
+</li>
+<li><span class="text-brand-border">/</span></li>
+<li>
+<a class="hover:text-brand-corporate transition-colors" href="#">الحوكمة واللوائح</a>
+</li>
+<li><span class="text-brand-border">/</span></li>
+<li aria-current="page" class="font-bold text-brand-navy">عقد اجتماع الجمعية العمومية العادية</li>
+</ol>
+</nav>
+<!-- BEGIN: UnifiedProcedureCard -->
+<article class="bg-white rounded-2xl border border-brand-border shadow-sm overflow-hidden" data-purpose="unified-procedure-card">
+<!-- Procedure Card Header -->
+<div class="p-6 md:p-8 border-b border-brand-border bg-gradient-to-b from-brand-ice/50 to-white">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-md text-xs font-bold bg-brand-teal/15 text-brand-teal border border-brand-teal/30">
+              محدّث وفق لائحة 2024 المعتمدة
+            </span>
+<span class="text-xs text-brand-navy/50 font-medium">معرف الإجراء: GOV-AGM-01</span>
+</div>
+<!-- Meta Tags -->
+<div class="flex flex-wrap items-center gap-3 text-xs">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-brand-border text-brand-navy">
+<svg class="w-4 h-4 text-brand-sky" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>زمن الإنجاز المتوقع: <strong>21 يوماً قبل الموعد</strong></span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-brand-border text-brand-navy">
+<svg class="w-4 h-4 text-brand-corporate" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>الجهة المشرفة: <strong>المركز الوطني لتنمية القطاع غير الربحي</strong></span>
+</div>
+</div>
+</div>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy leading-snug">
+          إجراء: عقد اجتماع الجمعية العمومية العادية (السنوية)
+        </h2>
+<p class="mt-2 text-sm md:text-base text-brand-navy/70 leading-relaxed max-w-4xl">
+          التنظيم الإجرائي المعياري لدعوة وعقد واعتماد الجمعية العمومية العادية السنوية وفقاً للائحة التنفيذية لنظام الجمعيات والمؤسسات الأهلية، لضمان صحة النصاب وسلامة القرارات المصوت عليها وتوثيقها رسمياً.
+        </p>
+</div>
+<div class="p-6 md:p-8 space-y-10">
+<!-- SECTION 1: Alert Box "اعرف قبل أن تبدأ" -->
+<section aria-labelledby="prerequisites-heading" class="rounded-xl border border-brand-teal/40 bg-brand-teal/10 p-5 md:p-6">
+<div class="flex items-start gap-4">
+<div class="p-2.5 rounded-lg bg-brand-teal text-white shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-bold text-brand-navy mb-2 flex items-center gap-2" id="prerequisites-heading">
+<span>اعرف قبل أن تبدأ</span>
+<span class="text-xs px-2 py-0.5 rounded bg-brand-teal/20 text-brand-navy font-semibold">اشتراطات جوهرية</span>
+</h3>
+<p class="text-xs md:text-sm text-brand-navy/80 mb-3">
+                يجب استيفاء هذه المتطلبات المسبقة قبل إصدار خطاب الدعوة أو تحديد موعد الاجتماع لتفادي بطلان القرارات:
+              </p>
+<ul class="space-y-2 text-xs md:text-sm text-brand-navy font-medium list-disc list-inside">
+<li class="leading-relaxed">
+<strong>التحقق من سداد اشتراكات الأعضاء:</strong> حصر الأعضاء المسددين لاشتراكاتهم السنوية قبل 30 يوماً على الأقل من تاريخ توجيه الدعوة، واستبعاد غير المسددين من النصاب.
+                </li>
+<li class="leading-relaxed">
+<strong>اعتماد القوائم المالية المدققة:</strong> اكتمال تقرير مراجع الحسابات القانوني المعتمد، وموافقة مجلس الإدارة الرسمية على الميزانية وعرضها.
+                </li>
+<li class="leading-relaxed">
+<strong>إشعار المركز الوطني لتنمية القطاع غير الربحي:</strong> تزويد المركز بصورة من جدول الأعمال ومرفقات الاجتماع قبل موعده بـ 15 يوماً على الأقل عبر المنصة الإلكترونية.
+                </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Sequential Step-by-Step Execution Stepper -->
+<section aria-labelledby="steps-heading">
+<h3 class="text-xl font-bold text-brand-navy mb-6 flex items-center gap-2" id="steps-heading">
+<span class="w-3 h-3 rounded-sm bg-brand-corporate inline-block"></span>
+            مسار التنفيذ المرحلي المتسلسل (خطوة بخطوة)
+          </h3>
+<div class="relative border-r-2 border-brand-border mr-4 md:mr-6 space-y-10">
+<!-- STEP 1 -->
+<div class="relative pr-8 md:pr-10">
+<!-- Stepper Index Bullet -->
+<div class="absolute -right-3.5 top-0 w-7 h-7 rounded-full bg-brand-navy text-white flex items-center justify-center text-xs font-bold border-4 border-white shadow-xs">
+                1
+              </div>
+<div class="bg-white rounded-xl border border-brand-border p-5 shadow-xs hover:border-brand-corporate/40 transition-colors">
+<h4 class="text-base md:text-lg font-bold text-brand-navy mb-3">
+                  إعداد مسودة جدول الأعمال والملفات الداعمة
+                </h4>
+<p class="text-xs md:text-sm text-brand-navy/70 leading-relaxed mb-4">
+                  يقوم مجلس الإدارة أو من يفوضه بصياغة بنود الاجتماع العادي، متضمناً تقرير مجلس الإدارة عن أعمال السنة المنتهية، القوائم المالية، وخطة العمل وموازنة العام الجديد.
+                </p>
+<!-- Dual Badges Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-2">
+<!-- المعلومة الرسمية -->
+<div class="bg-brand-ice p-3.5 rounded-lg border-r-4 border-brand-navy">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-brand-navy text-white">المعلومة الرسمية</span>
+<span class="text-xs font-bold text-brand-navy">المادة 26 من اللائحة التنفيذية</span>
+</div>
+<p class="text-xs text-brand-navy/80 leading-relaxed">
+                      يجب إتاحة كافة تقارير الجمعية والقوائم المالية لاطلاع الأعضاء قبل الاجتماع بمدة لا تقل عن 10 أيام نظاماً عبر مقر الجمعية أو المنصة الإلكترونية.
+                    </p>
+</div>
+<!-- الخبرة الإرشادية من رواسي العمر -->
+<div class="bg-brand-teal/10 p-3.5 rounded-lg border-r-4 border-brand-teal">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-brand-teal text-white">الخبرة الإرشادية من رواسي العمر</span>
+</div>
+<p class="text-xs text-brand-navy/80 leading-relaxed">
+                      ننصح بتضمين ملخص تنفيذي لا يتجاوز صفحتين للميزانية والأنشطة، لتسهيل استيعاب الأعضاء وتحفيز نقاشات استراتيجية إيجابية بدلاً من استهلاك وقت الاجتماع بالتفاصيل.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- STEP 2 -->
+<div class="relative pr-8 md:pr-10">
+<div class="absolute -right-3.5 top-0 w-7 h-7 rounded-full bg-brand-corporate text-white flex items-center justify-center text-xs font-bold border-4 border-white shadow-xs">
+                2
+              </div>
+<div class="bg-white rounded-xl border border-brand-border p-5 shadow-xs hover:border-brand-corporate/40 transition-colors">
+<h4 class="text-base md:text-lg font-bold text-brand-navy mb-3">
+                  توجيه الدعوة الرسمية وتحديد آلية الانعقاد (حضوري / عن بُعد)
+                </h4>
+<p class="text-xs md:text-sm text-brand-navy/70 leading-relaxed mb-4">
+                  إرسال الدعوات المكتوبة عبر الوسائل المعتمدة (البريد الإلكتروني الموثق، الرسائل النصية القصيرة، منصة إدارة الجمعية) وتوضيح رابط الاجتماع في حال الانعقاد المرئي.
+                </p>
+<!-- Dual Badges Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-2">
+<div class="bg-brand-ice p-3.5 rounded-lg border-r-4 border-brand-navy">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-brand-navy text-white">المعلومة الرسمية</span>
+<span class="text-xs font-bold text-brand-navy">ضوابط الاجتماعات الافتراضية</span>
+</div>
+<p class="text-xs text-brand-navy/80 leading-relaxed">
+                      يجب أن تتيح المنصة التقنية التحقق الصارم من هوية كل عضو حاضر، وتمكينه من التفاعل الصوتي والمرئي، وإجراء التصويت السري أو العلني بصورة مؤتمتة وموثقة.
+                    </p>
+</div>
+<div class="bg-brand-teal/10 p-3.5 rounded-lg border-r-4 border-brand-teal">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-brand-teal text-white">الخبرة الإرشادية من رواسي العمر</span>
+</div>
+<p class="text-xs text-brand-navy/80 leading-relaxed">
+                      أرسل تذكيرات متتالية: قبل 15 يوماً (الدعوة الأساسية)، قبل 3 أيام (تذكير أول)، وصباح يوم الانعقاد (رابط الدخول المباشر والدعم الفني) لتقليل اعتذارات الحضور.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- STEP 3 -->
+<div class="relative pr-8 md:pr-10">
+<div class="absolute -right-3.5 top-0 w-7 h-7 rounded-full bg-brand-sky text-white flex items-center justify-center text-xs font-bold border-4 border-white shadow-xs">
+                3
+              </div>
+<div class="bg-white rounded-xl border border-brand-border p-5 shadow-xs hover:border-brand-corporate/40 transition-colors">
+<h4 class="text-base md:text-lg font-bold text-brand-navy mb-3">
+                  إدارة جلسة الانعقاد واكتمال النصاب القانوني والتصويت
+                </h4>
+<p class="text-xs md:text-sm text-brand-navy/70 leading-relaxed mb-4">
+                  حصر وتدقيق حضور الأعضاء شخصياً أو بالوكالة النظامية، إعلان اكتمال النصاب (أكثر من نصف الأعضاء العاملين)، وإدارة المناقشات والتصويت على كل بند باستقلال.
+                </p>
+<div class="bg-brand-ice p-3.5 rounded-lg border border-brand-border text-xs text-brand-navy/80 leading-relaxed">
+<strong>قاعدة النصاب في الاجتماع الثاني:</strong> في حال عدم اكتمال نصاب الاجتماع الأول، يؤجل الاجتماع لمدة ساعة إذا كان منصوصاً عليها في الدعوة، ويكون صحيحاً بحضور 25% من الأعضاء على الأقل.
+                </div>
+</div>
+</div>
+<!-- STEP 4 -->
+<div class="relative pr-8 md:pr-10">
+<div class="absolute -right-3.5 top-0 w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold border-4 border-white shadow-xs">
+                4
+              </div>
+<div class="bg-white rounded-xl border border-brand-border p-5 shadow-xs hover:border-brand-corporate/40 transition-colors">
+<h4 class="text-base md:text-lg font-bold text-brand-navy mb-3">
+                  تحرير المحضر الرسمي وتوثيقه ورفعه للمركز الوطني خلال المدة النظامية
+                </h4>
+<p class="text-xs md:text-sm text-brand-navy/70 leading-relaxed mb-4">
+                  صياغة المحضر بالصيغة القانونية المعتمدة، وتوقيعه من رئيس المجلس وأمين السر ومدقق الحسابات المستقل، ورفعه مصحوباً بقوائم الحضور ونتائج التصويت عبر بوابة المركز الوطني.
+                </p>
+<div class="bg-brand-ice p-3.5 rounded-lg border border-brand-border text-xs text-brand-navy/80 leading-relaxed">
+<strong>المهلة النظامية:</strong> يلزم رفع المحضر والقرارات إلى المركز الوطني لتنمية القطاع غير الربحي خلال 15 يوماً من تاريخ انعقاد الاجتماع لاعتمادها نظاماً.
+                </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Downloadable Ready-to-Use Templates Bar -->
+<section aria-labelledby="templates-heading" class="pt-4">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="text-xl font-bold text-brand-navy flex items-center gap-2" id="templates-heading">
+<svg class="w-5 h-5 text-brand-corporate" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                النماذج والمستندات الجاهزة للتحميل
+              </h3>
+<p class="text-xs md:text-sm text-brand-navy/60 mt-1">نماذج مطابقة لمعايير الحوكمة والاشتراطات الرسمية للمركز الوطني</p>
+</div>
+<span class="text-xs font-semibold text-brand-corporate bg-brand-ice px-3 py-1.5 rounded-full border border-brand-border hidden sm:inline-block">
+              صيغ معتمدة قابلة للتعديل
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Template Card 1 -->
+<div class="p-4 rounded-xl border border-brand-border bg-white hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-brand-corporate">Word + PDF</span>
+<svg class="w-5 h-5 text-brand-sky" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<h4 class="text-sm font-bold text-brand-navy mb-1.5">نموذج محضر اجتماع الجمعية العمومية العادية</h4>
+<p class="text-xs text-brand-navy/60 mb-4 leading-relaxed">صيغة رسمية متكاملة تتضمن بنود إثبات النصاب والمصادقة على القوائم والقرارات.</p>
+</div>
+<a class="inline-flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg text-xs font-bold text-brand-corporate bg-brand-ice hover:bg-brand-corporate hover:text-white transition-colors" href="#">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                تحميل النموذج (DOCX)
+              </a>
+</div>
+<!-- Template Card 2 -->
+<div class="p-4 rounded-xl border border-brand-border bg-white hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Excel + PDF</span>
+<svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<h4 class="text-sm font-bold text-brand-navy mb-1.5">جدول الأعمال النموذجي وقائمة الحضور والنصاب</h4>
+<p class="text-xs text-brand-navy/60 mb-4 leading-relaxed">ملف إلكتروني لحساب النصاب القانوني التلقائي بحسب نوع العضوية وسداد الرسوم.</p>
+</div>
+<a class="inline-flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg text-xs font-bold text-brand-corporate bg-brand-ice hover:bg-brand-corporate hover:text-white transition-colors" href="#">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                تحميل القالب (XLSX)
+              </a>
+</div>
+<!-- Template Card 3 -->
+<div class="p-4 rounded-xl border border-brand-border bg-white hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-100 text-brand-sky">Word</span>
+<svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<h4 class="text-sm font-bold text-brand-navy mb-1.5">نموذج تفويض العضو وإقرار التصويت</h4>
+<p class="text-xs text-brand-navy/60 mb-4 leading-relaxed">صيغة التوكيل النظامية المعتمدة لتمثيل الأعضاء الغائبين دون الإخلال بحدود التوكيل.</p>
+</div>
+<a class="inline-flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg text-xs font-bold text-brand-corporate bg-brand-ice hover:bg-brand-corporate hover:text-white transition-colors" href="#">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                تحميل النموذج (DOCX)
+              </a>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Bottom Conversion Card -->
+<section class="rounded-2xl bg-brand-ice border border-brand-border p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6" data-purpose="bottom-cta-banner">
+<div class="space-y-2 text-center md:text-right">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-border text-brand-corporate text-xs font-bold mb-1">
+<span>إشراف وتنفيذ استشاري مباشر</span>
+</div>
+<h4 class="text-xl md:text-2xl font-extrabold text-brand-navy">
+              تحتاج فريق رواسي العمر لتنفيذ هذا الإجراء لجمعيتك بالكامل؟
+            </h4>
+<p class="text-xs md:text-sm text-brand-navy/75 max-w-2xl leading-relaxed">
+              خبراؤنا يتولون التجهيز النظامي، إعداد المحاضر، والتنسيق والرفع المعتمد لضمان الامتثال التام مع المركز الوطني وتجنب أي ملاحظات رقابية.
+            </p>
+</div>
+<div class="shrink-0 w-full md:w-auto">
+<a class="inline-flex items-center justify-center gap-2 w-full md:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-brand-navy hover:bg-brand-corporate shadow-md transition-all" href="#">
+<span>اطلب الخدمة الآن</span>
+<svg class="w-5 h-5 -rotate-90 md:rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+</div>
+</section>
+</div>
+</article>
+<!-- END: UnifiedProcedureCard -->
+</main>
+<!-- END: MainContentContainer -->
+<!-- BEGIN: ExecutiveFooter -->
+<footer class="bg-brand-navy text-white pt-16 pb-12 border-t border-brand-corporate/30" data-purpose="executive-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+<!-- Brand & Description Column (Span 2) -->
+<div class="lg:col-span-2 space-y-4">
+<!-- White Inverted Logo for Dark Footer -->
+<div class="flex items-center">
+<svg class="h-11 w-auto" fill="none" height="50" viewbox="0 0 540 120" width="220" xmlns="http://www.w3.org/2000/svg">
+<!-- Arch & 3 Ascending Pillars Symbol with White/Teal Palette -->
+<g transform="translate(10, 10)">
+<!-- Outer Arch in Pure White -->
+<path d="M 15 100 L 15 45 C 15 20, 35 5, 55 5 C 75 5, 95 20, 95 45 L 95 100" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-width="9"></path>
+<!-- Pillar 1: Bright Sky -->
+<rect fill="#3488C4" height="45" rx="4.5" width="9" x="30" y="55"></rect>
+<!-- Pillar 2: Corporate Blue -->
+<rect fill="#47A3B8" height="62" rx="4.5" width="9" x="50" y="38"></rect>
+<!-- Pillar 3: Soft Turquoise Teal -->
+<rect fill="#F2F8FC" height="76" rx="4.5" width="9" x="70" y="24"></rect>
+</g>
+<!-- Brand Typography in White & Sky -->
+<g transform="translate(130, 20)">
+<text fill="#FFFFFF" font-family="'IBM Plex Sans Arabic', 'Cairo', 'Segoe UI', sans-serif" font-size="38" font-weight="800" letter-spacing="-0.5" x="0" y="45">رواسي العمر</text>
+<text fill="#3488C4" font-family="'IBM Plex Sans Arabic', 'Cairo', 'Segoe UI', sans-serif" font-size="14" font-weight="600" letter-spacing="1" x="2" y="74">منظومة التطوير والاستدامة والتنفيذ</text>
+</g>
+</svg>
+</div>
+<p class="text-xs md:text-sm text-brand-ice/75 max-w-sm leading-relaxed">
+            شريكك التنفيذي والمؤسسي الرائد في تمكين منظمات القطاع غير الربحي بالمملكة العربية السعودية، وتطوير البنية الحوكمية والاستثمارية وفق مستهدفات رؤية 2030.
+          </p>
+</div>
+<!-- Quick Links: قطاعاتنا -->
+<div class="space-y-3">
+<h5 class="text-sm font-bold text-white uppercase tracking-wider">قطاعاتنا الخمسة</h5>
+<ul class="space-y-2 text-xs md:text-sm text-brand-ice/70">
+<li><a class="hover:text-brand-sky transition-colors" href="#">الاستشارات المؤسسية</a></li>
+<li><a class="hover:text-brand-sky transition-colors" href="#">الحوكمة والامتثال</a></li>
+<li><a class="hover:text-brand-sky transition-colors" href="#">إدارة الأوقاف والوصايا</a></li>
+<li><a class="hover:text-brand-sky transition-colors" href="#">الاستدامة المالية والتمويل</a></li>
+<li><a class="hover:text-brand-sky transition-colors" href="#">التحول الرقمي للقطاع الثالث</a></li>
+</ul>
+</div>
+<!-- Quick Links: مرجع الجمعيات -->
+<div class="space-y-3">
+<h5 class="text-sm font-bold text-white uppercase tracking-wider">مرجع الجمعيات</h5>
+<ul class="space-y-2 text-xs md:text-sm text-brand-ice/70">
+<li><a class="hover:text-brand-sky transition-colors" href="#">أدلة التأسيس والتراخيص</a></li>
+<li><a class="hover:text-brand-sky transition-colors" href="#">معايير الحوكمة السنوية</a></li>
+<li><a class="hover:text-brand-sky transition-colors" href="#">بنك النماذج واللوائح</a></li>
+<li><a class="hover:text-brand-sky transition-colors" href="#">التنظيمات والتعاميم المحدثة</a></li>
+<li><a class="hover:text-brand-sky transition-colors" href="#">طلب استشارة إجرائية</a></li>
+</ul>
+</div>
+<!-- Contact Column -->
+<div class="space-y-3">
+<h5 class="text-sm font-bold text-white uppercase tracking-wider">التواصل المباشر</h5>
+<ul class="space-y-2 text-xs md:text-sm text-brand-ice/70">
+<li class="flex items-center gap-2">
+<svg class="w-4 h-4 text-brand-teal shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span dir="ltr">+966 53 888 1885</span>
+</li>
+<li class="flex items-center gap-2">
+<svg class="w-4 h-4 text-brand-teal shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>info@rawasialomar.sa</span>
+</li>
+<li class="flex items-start gap-2">
+<svg class="w-4 h-4 text-brand-teal shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>الرياض، المملكة العربية السعودية</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Footer Bottom Bar -->
+<div class="mt-8 flex flex-col md:flex-row items-center justify-between text-xs text-brand-ice/60 gap-4">
+<p>© 2024 شركة رواسي العمر للاستثمار والتطوير المؤسسي. جميع الحقوق محفوظة.</p>
+<div class="flex items-center space-x-reverse space-x-6">
+<a class="hover:text-white transition-colors" href="#">سياسة الخصوصية</a>
+<a class="hover:text-white transition-colors" href="#">الشروط والأحكام</a>
+<a class="hover:text-white transition-colors" href="#">خريطة الموقع</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: ExecutiveFooter -->
+</body></html>

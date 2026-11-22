@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none">
+  <!-- Architectural 4-Bar Pillar / Arch Symbol -->
+  <g transform="translate(10, 8)">
+    <!-- Pillar 1: Deep Royal Navy -->
+    <rect x="0" y="16" width="7" height="32" rx="3.5" fill="#163063"/>
+    <!-- Pillar 2: Corporate Blue -->
+    <rect x="12" y="8" width="7" height="40" rx="3.5" fill="#2360A5"/>
+    <!-- Pillar 3: Bright Sky Cerulean -->
+    <rect x="24" y="0" width="7" height="48" rx="3.5" fill="#3488C4"/>
+    <!-- Pillar 4: Turquoise Teal -->
+    <rect x="36" y="12" width="7" height="36" rx="3.5" fill="#47A3B8"/>
+    <!-- Overarching Connecting Arch Wave -->
+    <path d="M-2 48 C 12 44, 30 44, 46 48" stroke="#163063" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  </g>
+  
+  <!-- Arabic Brand Typography -->
+  <text x="68" y="34" font-family="'IBM Plex Sans Arabic', sans-serif" font-size="24" font-weight="700" fill="#163063" letter-spacing="-0.5">رواسي العمر</text>
+  <!-- Institutional Subtitle -->
+  <text x="70" y="49" font-family="'IBM Plex Sans Arabic', sans-serif" font-size="10.5" font-weight="500" fill="#526071" letter-spacing="0.2">للتطوير والاستدامة المؤسسية</text>
+</svg>

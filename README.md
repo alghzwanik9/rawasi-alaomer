@@ -1,36 +1,175 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div dir="rtl" align="right">
 
-## Getting Started
+# رواسي العمر | Rawasi Al-Omar
+### **جهة واحدة.. مسار واضح.. تمام في الختام**
 
-First, run the development server:
+منصة مؤسسية واستشارية وتنفيذية متكاملة لشركة **رواسي العمر**، مصممة لخدمة **القطاع غير الربحي (الجمعيات الأهلية، المؤسسات، والأوقاف)**، **الجهات المانحة والصناديق التنموية**، و**قطاع الأعمال والجهات الحكومية** عبر نموذج **تسليم المفتاح (Turnkey Execution)** من التأسيس والدراسة وحتى التشغيل وقياس الأثر.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🏛️ فلسفة العلامة التجارية
+- **الرَّوَاسِي**: الثبات، المتانة، الرسوخ المؤسسي، والالتزام بالمعايير النظامية والهندسية.
+- **العُمْر**: امتداد القيمة والأثر واستدامة المشاريع بعد التسليم، لا مجرد إنهاء العقود.
+
+---
+
+## 🌐 البوابات الرقمية الثلاث في المنصة
+
+تتكون المنصة من **3 بوابات مترابطة** تحت مظلة رقمية واحدة:
+
+### 1. البوابة المؤسسية العامة (`Public Corporate Portal`)
+- **الرئيسية (`/`)**: عرض القيمة المؤسسية، القطاعات الخمسة، مسارات الجمعيات والأوقاف، ومنهجية التنفيذ الرباعية.
+- **من نحن (`/about`)**: فلسفة الرواسي والعمر، الرؤية والرسالة، **ميثاق رواسي العمر**، والركائز التنفيذية الثلاث (مظلة واحدة، وضوح قبل التنفيذ، تمام في الختام).
+- **القطاعات التنفيذية (`/sectors` و `/sectors/[slug]`)**:
+  1. المقاولات والتطوير الإنشائي (`contracting`)
+  2. التجهيز والتوريد المتكامل (`supply`)
+  3. التقنية والحلول الذكية (`tech`)
+  4. التشغيل والصيانة المستدامة (`operations`)
+  5. المشاريع والمبادرات المجتمعية (`community`)
+- **حلول الجمعيات والأوقاف (`/non-profit`)**: المسارات الستة المتكاملة لتمكين القطاع غير الربحي من التأسيس والحوكمة إلى الاستدامة المالية وقياس الأثر.
+- **مختبر الأثر والنماذج التنفيذية (`/impact`)**: منهجية العائد الاجتماعي على الاستثمار (`SROI`) و3 نماذج تنفيذية جاهزة للانطلاق (`Turnkey Blueprints`).
+- **معالج تأهيل المشاريع الذكي (`/start-project`)**: نموذج تفاعلي من 4 خطوات لتأهيل الطلبات، يولّد رقماً مرجعياً فورياً (`RAO-2026-XXX`) مع ربط مباشر بقاعدة بيانات Supabase وإحالة فورية منسقة عبر واتساب.
+
+---
+
+### 2. مرجع الجمعيات الأهلية والأوقاف (`/marjea`)
+بوابة معرفية وإجرائية مفتوحة تخدم منسوبي القطاع غير الربحي في المملكة:
+- **محرك بحث إجرائي فوري** في الأدلة والنماذج باللغة العربية.
+- **اختصارات "ابدأ من هنا"** لأكثر الإجراءات طلباً (تأسيس جمعية، عقد جمعية عمومية، انتخاب مجلس إدارة، فتح حساب بنكي، منصة إحسان، جمع تبرعات).
+- **9 تصنيفات معرفية متخصصة** تغطي التراخيص، الحوكمة، المالية، الموارد البشرية والتطوع، الأوقاف، والمنصات الرقمية.
+- **بطاقة الإجراء الموحدة (`/marjea/guide/[slug]`)**:
+  - صندوق **"اعرف قبل أن تبدأ"** للمتطلبات الإلزامية.
+  - خطوات تسلسلية مرقمة (`1 ← 2 ← 3 ← 4`).
+  - فصل بصري واضح بين **"المعلومة الرسمية"** المعتمدة نظامياً و**"الخبرة الإرشادية من رواسي العمر"**.
+  - شريط تحميل النماذج الجاهزة (`Word` / `PDF`).
+
+---
+
+### 3. لوحة التحكم الإدارية والتنفيذية الداخلية (`/login` و `/dashboard`)
+بوابة داخلية محمية بالكامل عبر **Supabase Auth (`@supabase/ssr`)** و**Next.js Proxy/Middleware** مع نظام صلاحيات متعدد الأدوار (**RBAC**):
+- **نظرة عامة (`/dashboard`)**: مؤشرات الأداء الرئيسية (`KPIs`)، أحدث الطلبات، وحالة الأدلة المعرفية.
+- **إدارة طلبات المشاريع CRM (`/dashboard/leads`)**:
+  - مرتبطة مباشرة بجدول `inquiries` في Supabase.
+  - **عزل الطلبات حسب الدور (Server-Side Lead Isolation)**: المدير العام يرى ويسند جميع الطلبات، بينما يرى مدير القطاع فقط الطلبات المسندة إليه أو التابعة لقطاعه.
+  - تحديث حالات الطلب (`جديد` ← `قيد الدراسة` ← `تم التواصل` ← `تم إرسال العرض` ← `مغلق بنجاح`) ومتابعة فورية عبر واتساب.
+- **إدارة مرجع الجمعيات CMS (`/dashboard/marjea-cms`)**:
+  - تطبيق حوكمة النشر المزدوجة (**Maker-Checker Workflow**): المحرر (`Maker`) ينشئ المسودات ويرسلها للمراجعة، ومراجع الحوكمة (`Checker`) يعتمدها للنشر.
+- **فريق العمل والصلاحيات (`/dashboard/team`)**: مصفوفة الصلاحيات وإدارة أعضاء الفريق.
+
+---
+
+## 🔐 مصفوفة الأدوار والصلاحيات (RBAC)
+
+| الدور البرمجي | المسمى الوظيفي | البريد التجريبي | نطاق الصلاحية |
+|---|---|---|---|
+| `super_admin` | المدير العام | `ceo@rawasialomar.sa` | صلاحيات شاملة لكافة اللوحات، إسناد الطلبات، واعتماد الأدلة |
+| `sector_manager` | مدير قطاع / مبيعات | `f.harbi@rawasialomar.sa` | إدارة وتحديث طلبات المشاريع المسندة إليه أو التابعة لقطاعه فقط |
+| `marjea_editor` | محرر المعرفة (`Maker`) | `n.qahtani@rawasialomar.sa` | إنشاء وتعديل مسودات أدلة مرجع الجمعيات والنماذج (محجوب عن CRM) |
+| `governance_reviewer` | مراجع الحوكمة (`Checker`) | `a.ghamdi@rawasialomar.sa` | المراجعة النظامية واعتماد نشر أدلة مرجع الجمعيات (محجوب عن CRM) |
+
+---
+
+## 🛠️ البنية التقنية (Tech Stack)
+
+- **إطار العمل**: [Next.js 16](https://nextjs.org/) (App Router + Turbopack + Cache Components + Server/Client Islands)
+- **واجهة المستخدم**: React 19 + TypeScript 5 + Tailwind CSS v4 + Lucide Icons
+- **الهوية البصرية والخطوط**:
+  - الخط العربي الرسمي: `IBM Plex Sans Arabic` (اتجاه أصلي `RTL`)
+  - لوحة الألوان المؤسسية الموحدة: الكحلي الملكي (`#163063`)، الأزرق المؤسسي (`#2360A5`)، السماوي (`#3488C4`)، والتركوازي (`#47A3B8`) على خلفية ناصعة (`#FFFFFF` / `#F2F8FC`)
+- **قاعدة البيانات والمصادقة**: [Supabase](https://supabase.com/) (PostgreSQL + Row Level Security RLS + Supabase Auth `@supabase/ssr`)
+
+---
+
+## 🗄️ هيكلية قاعدة البيانات (14 جدولاً في Supabase)
+
+يحتوي ملف [`supabase/schema.sql`](./supabase/schema.sql) على المخطط الكامل مع سياسات الأمان (`RLS`):
+1. `inquiries` — طلبات تأهيل المشاريع (`CRM Leads`)
+2. `lead_timeline_events` — السجل الزمني لمتابعة الطلبات
+3. `proposals` — العروض الفنية والمالية
+4. `sectors` — القطاعات التنفيذية الخمسة
+5. `non_profit_tracks` — مسارات تمكين الجمعيات والأوقاف الستة
+6. `turnkey_blueprints` — النماذج التنفيذية الجاهزة
+7. `knowledge_categories` — تصنيفات مرجع الجمعيات التسعة
+8. `marjea_procedures` — الأدلة الإجرائية في مرجع الجمعيات
+9. `procedure_prerequisites` — متطلبات "اعرف قبل أن تبدأ"
+10. `procedure_steps` — الخطوات الإجرائية المتسلسلة
+11. `procedure_templates` — النماذج والمرفقات القابلة للتحميل
+12. `cms_workflow_logs` — سجل حوكمة التحرير والاعتماد (`Maker-Checker`)
+13. `staff_profiles` — ملفات الموظفين وأدوارهم (`RBAC`)
+14. `audit_logs` — سجل الامتثال والعمليات الرقابية
+
+---
+
+## 📁 هيكلية المشروع
+
+```text
+rawasialomar/
+├── src/
+│   ├── app/
+│   │   ├── (public)/           # البوابة المؤسسية العامة ومعالج بدء المشروع
+│   │   ├── (marjea)/           # بوابة مرجع الجمعيات وبطاقة الإجراء الموحدة
+│   │   ├── (portal)/           # بوابة تسجيل الدخول ولوحة التحكم الداخلية
+│   │   └── api/
+│   │       ├── auth/me/        # التحقق من جلسة الموظف ودوره من staff_profiles
+│   │       ├── inquiries/      # واجهة الطلبات المحمية مع عزل الأدوار (RBAC)
+│   │       └── health/supabase/# فحص حالة الاتصال الحي بقاعدة البيانات
+│   ├── components/             # المكونات المشتركة ومكونات البوابة العامة
+│   ├── data/                   # البيانات التأسيسية، الأدلة، ومساعدات المصادقة
+│   ├── lib/supabase/           # عملاء Supabase للمتصفح والخادم
+│   └── proxy.ts                # حماية مسارات /dashboard/* وإدارة الجلسات
+├── supabase/
+│   ├── schema.sql              # مخطط الجداول الـ 14 وسياسات RLS
+│   ├── seed.sql                # البيانات التأسيسية العربية الكاملة
+│   └── fix_permissions.sql     # ضبط صلاحيات الأدوار وعزل الجداول الحساسة
+└── scripts/
+    └── seed-auth-users.mjs     # سكربت إنشاء حسابات الموظفين الأربعة في Supabase Auth
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 التشغيل المحلي (Local Development)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. تثبيت الحزم
+```bash
+pnpm install
+```
 
-## Learn More
+### 2. إعداد متغيرات البيئة
+انسخ ملف `.env.example` إلى `.env.local` وأضف مفاتيح مشروعك في Supabase:
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY
+SUPABASE_SERVICE_ROLE_KEY=YOUR_SUPABASE_SECRET_OR_SERVICE_ROLE_KEY
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. تهيئة قاعدة البيانات وحسابات الموظفين
+1. شغّل بالترتيب داخل **Supabase SQL Editor**:
+   - `supabase/schema.sql`
+   - `supabase/seed.sql`
+   - `supabase/fix_permissions.sql`
+2. أنشئ حسابات الموظفين الأربعة في Supabase Auth عبر السكربت:
+   ```bash
+   pnpm seed:auth
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. تشغيل خادم التطوير
+```bash
+pnpm dev
+```
+- الموقع العام: `http://localhost:3000`
+- مرجع الجمعيات: `http://localhost:3000/marjea`
+- معالج تأهيل المشاريع: `http://localhost:3000/start-project`
+- لوحة التحكم الداخلية: `http://localhost:3000/login`
+- فحص اتصال قاعدة البيانات: `http://localhost:3000/api/health/supabase`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. بناء نسخة الإنتاج
+```bash
+pnpm build
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 الحقوق والملكية
+جميع الحقوق محفوظة © **شركة رواسي العمر** — المملكة العربية السعودية.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</div>

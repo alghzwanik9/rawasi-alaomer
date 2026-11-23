@@ -29,9 +29,82 @@ export function UnifiedProcedureCard({
   const [downloadedId, setDownloadedId] = useState<string | null>(null);
   const [copiedLink, setCopiedLink] = useState(false);
 
-  const handleDownload = (templateId: string, filename: string) => {
+  const downloadFallbackDoc = (
+    filename: string,
+    title?: string,
+    description?: string
+  ) => {
+    if (typeof window === "undefined") return;
+    const content = `================================================================================
+شركة رواسي العمر للاستشارات والتنفيذ المتكامل | منصة مرجع الجمعيات الأهلية
+النموذج الاسترشادي: ${title || filename}
+كود الإجراء: ${procedure.code} - ${procedure.title}
+تاريخ التحديث: ${procedure.lastUpdated}
+الجهة المشرفة: ${procedure.authority}
+================================================================================
+
+[نبذة عن النموذج]:
+${description || procedure.shortSummary}
+
+[المتطلبات المسبقة]:
+${procedure.prerequisites.items.map((it) => `• ${it.headline}: ${it.detail}`).join("\n")}
+
+[الخطوات التنفيذية المعتمدة]:
+${procedure.steps
+  .map(
+    (st) =>
+      `الخطوة ${st.stepNumber}: ${st.title}\n- المرجع: ${st.officialInfo.reference}\n- إرشاد رواسي العمر: ${st.advisoryTip.text}`
+  )
+  .join("\n\n")}
+
+================================================================================
+لطلب مساندة تنفيذية متكاملة:
+هاتف / واتساب: +966538881885 | المنصة: https://rawasialomar.sa/start-project
+================================================================================`;
+
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  };
+
+  const handleDownload = async (
+    templateId: string,
+    filename: string,
+    title?: string,
+    description?: string
+  ) => {
     setDownloadedId(templateId);
-    // Simulate template download with realistic feedback
+
+    const supabaseUrl =
+      process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      "https://qghyfyktqibycanncbkk.supabase.co";
+    const storageFileUrl = `${supabaseUrl}/storage/v1/object/public/marjea-templates/${filename}`;
+
+    try {
+      const response = await fetch(storageFileUrl);
+      if (response.ok) {
+        const blob = await response.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(blobUrl);
+      } else {
+        downloadFallbackDoc(filename, title, description);
+      }
+    } catch {
+      downloadFallbackDoc(filename, title, description);
+    }
+
     setTimeout(() => {
       setDownloadedId(null);
     }, 2500);
@@ -312,7 +385,14 @@ export function UnifiedProcedureCard({
                   </div>
 
                   <button
-                    onClick={() => handleDownload(tmpl.id, tmpl.downloadFileName)}
+                    onClick={() =>
+                      handleDownload(
+                        tmpl.id,
+                        tmpl.downloadFileName,
+                        tmpl.title,
+                        tmpl.description
+                      )
+                    }
                     className={`inline-flex items-center justify-center gap-2 w-full py-2.5 px-3 rounded-lg text-xs font-bold transition-all ${
                       isDownloaded
                         ? "bg-emerald-600 text-white"

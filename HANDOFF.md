@@ -92,10 +92,18 @@
 | 8 | `public.marjea_procedures` | 8 | مربوط حياً بـ `/api/marjea` (6 منشورة + 1 مراجعة + 1 مسودة) |
 | 9 | `public.procedure_steps` | 24 | خطوات الأدلة الإجرائية |
 | 10 | `public.procedure_prerequisites` | 18 | متطلبات "اعرف قبل أن تبدأ" |
-| 11 | `public.procedure_templates` | 18 | نماذج التحميل المرفقة بالأدلة |
+| 11 | `public.procedure_templates` | 18 | نماذج التحميل المرفقة بالأدلة (مربوطة بـ Supabase Storage) |
 | 12 | `public.cms_workflow_logs` | 4 | يسجل حركات Maker-Checker تلقائياً |
 | 13 | `public.staff_profiles` | 4 | مربوط حياً بـ `/api/staff` و `/api/auth/me` |
 | 14 | `public.audit_logs` | 4 | يسجل العمليات الرقابية تلقائياً |
+
+### رابعاً: مستودع التخزين السحابي (Supabase Storage)
+- **الحاوية العامة (`Public Bucket`)**: `marjea-templates`
+- **حجم الملف الأقصى**: 50 ميغابايت (`file_size_limit: 52428800`)
+- **الصيغ المدعومة**: Word (`.docx`), Excel (`.xlsx`), PDF (`.pdf`), ZIP, Text.
+- **ملف الإعداد والسياسات**: [`supabase/storage_setup.sql`](./supabase/storage_setup.sql)
+- **سكربت الرفع التلقائي**: [`scripts/seed-storage-templates.mjs`](./scripts/seed-storage-templates.mjs) عبر الأمر `pnpm seed:storage`.
+- **حالة الرفع**: تم رفع **18 ملفاً إسترشادياً معتمداً** في الحاوية مع روابط تحميل عامة حقيقية تعمل مباشرة من واجهة بطاقة الإجراء الموحدة (`UnifiedProcedureCard`) مع وجود معالج احتياطي ذكي (`Graceful Fallback`).
 
 ---
 

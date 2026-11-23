@@ -118,7 +118,7 @@ export default function DashboardOverviewPage() {
             <span>مرحباً، {currentUser?.name || "المسؤول"}</span>
             <span className="text-[#526071]">({currentUser?.roleTitle})</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#163063]">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#163063] leading-tight">
             مؤشرات الأداء وتأهيل المشاريع
           </h1>
           <p className="text-xs sm:text-sm text-[#526071] mt-1">
@@ -156,7 +156,7 @@ export default function DashboardOverviewPage() {
               <Inbox className="w-5 h-5" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-[#163063] font-mono mb-1">
+          <div className="text-3xl font-bold text-[#163063] tracking-tight mb-1">
             {isLoading ? "..." : totalInquiries}
           </div>
           <p className="text-[11px] text-[#526071] flex items-center gap-1">
@@ -174,7 +174,7 @@ export default function DashboardOverviewPage() {
               <Landmark className="w-5 h-5" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-[#2360A5] font-mono mb-1">
+          <div className="text-3xl font-bold text-[#2360A5] tracking-tight mb-1">
             {isLoading ? "..." : nonProfitInquiries}
           </div>
           <p className="text-[11px] text-[#526071]">
@@ -191,7 +191,7 @@ export default function DashboardOverviewPage() {
               <Building className="w-5 h-5" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-[#3488C4] font-mono mb-1">
+          <div className="text-3xl font-bold text-[#3488C4] tracking-tight mb-1">
             {isLoading ? "..." : corporateInquiries}
           </div>
           <p className="text-[11px] text-[#526071]">
@@ -208,7 +208,7 @@ export default function DashboardOverviewPage() {
               <BookOpenCheck className="w-5 h-5" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-[#47A3B8] font-mono mb-1">
+          <div className="text-3xl font-bold text-[#47A3B8] tracking-tight mb-1">
             {publishedGuidesCount}
           </div>
           <p className="text-[11px] text-[#526071]">
@@ -263,7 +263,7 @@ export default function DashboardOverviewPage() {
               <tbody className="divide-y divide-[#E2ECF5]">
                 {inquiries.slice(0, 5).map((inq) => (
                   <tr key={inq.id} className="hover:bg-[#F2F8FC]/50 transition-colors">
-                    <td className="py-3.5 px-4 font-mono font-bold text-[#163063]">
+                    <td className="py-3.5 px-4 font-bold text-[#163063] tracking-wide">
                       {inq.refId}
                     </td>
                     <td className="py-3.5 px-4">

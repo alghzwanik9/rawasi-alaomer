@@ -96,7 +96,7 @@ function LoginFormContent() {
         <div className="flex flex-wrap items-center justify-between gap-2 mb-3 border-b border-[#E2ECF5] pb-3">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-[#3488C4]" />
-            <span className="text-xs font-extrabold text-[#163063]">
+            <span className="text-xs font-bold text-[#163063]">
               الدخول الفوري بحسابات الموظفين (Live Supabase Auth + RBAC):
             </span>
           </div>
@@ -125,7 +125,7 @@ function LoginFormContent() {
                 <h4 className="text-xs font-bold text-[#163063] group-hover:text-[#2360A5]">
                   المدير العام
                 </h4>
-                <span className="text-[10px] font-mono text-[#526071]">
+                <span className="text-[10px] font-semibold text-[#526071]">
                   super_admin
                 </span>
               </div>
@@ -156,7 +156,7 @@ function LoginFormContent() {
                 <h4 className="text-xs font-bold text-[#163063] group-hover:text-[#2360A5]">
                   مدير قطاع / مبيعات
                 </h4>
-                <span className="text-[10px] font-mono text-[#526071]">
+                <span className="text-[10px] font-semibold text-[#526071]">
                   sector_mgr
                 </span>
               </div>
@@ -187,7 +187,7 @@ function LoginFormContent() {
                 <h4 className="text-xs font-bold text-[#163063] group-hover:text-[#2360A5]">
                   محرر المعرفة
                 </h4>
-                <span className="text-[10px] font-mono text-[#526071]">
+                <span className="text-[10px] font-semibold text-[#526071]">
                   maker
                 </span>
               </div>
@@ -218,7 +218,7 @@ function LoginFormContent() {
                 <h4 className="text-xs font-bold text-[#163063] group-hover:text-[#2360A5]">
                   مراجع الحوكمة
                 </h4>
-                <span className="text-[10px] font-mono text-[#526071]">
+                <span className="text-[10px] font-semibold text-[#526071]">
                   checker
                 </span>
               </div>
@@ -348,7 +348,7 @@ export default function LoginPage() {
           <ShieldCheck className="w-4 h-4 text-[#47A3B8]" />
           <span>بوابة المنظومة الإدارية والتنفيذية الداخلية</span>
         </div>
-        <h1 className="text-2xl font-extrabold text-[#163063]">
+        <h1 className="text-2xl font-bold text-[#163063] leading-tight">
           تسجيل الدخول لمنسوبي رواسي العمر
         </h1>
         <p className="text-xs text-[#526071] mt-1.5">

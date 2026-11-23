@@ -214,11 +214,11 @@ export default function LeadsCrmPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <h1 className="text-2xl font-extrabold text-[#163063] flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-[#163063] flex items-center gap-2">
               <Inbox className="w-6 h-6 text-[#2360A5]" />
               <span>إدارة وتأهيل طلبات المشاريع (CRM Pipeline)</span>
             </h1>
-            <span className="text-xs font-mono font-bold bg-[#163063] text-white px-2 py-0.5 rounded-full">
+            <span className="text-xs font-semibold bg-[#163063] text-white px-2.5 py-0.5 rounded-full">
               {visibleInquiries.length} طلب
             </span>
           </div>
@@ -365,7 +365,7 @@ export default function LeadsCrmPage() {
                       className="hover:bg-[#F2F8FC]/50 transition-colors"
                     >
                       {/* Ref ID */}
-                      <td className="py-3.5 px-4 font-mono font-extrabold text-[#163063]">
+                      <td className="py-3.5 px-4 font-bold text-[#163063] tracking-wide">
                         <button
                           onClick={() => setSelectedInquiry(inq)}
                           className="hover:underline text-[#2360A5]"
@@ -502,10 +502,10 @@ export default function LeadsCrmPage() {
           <div className="bg-white rounded-2xl border border-[#E2ECF5] max-w-xl w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95 duration-150">
             <div className="flex items-center justify-between border-b border-[#E2ECF5] pb-3">
               <div>
-                <span className="text-xs font-mono font-bold text-[#2360A5]">
+                <span className="text-xs font-semibold text-[#2360A5] tracking-wide">
                   {selectedInquiry.refId}
                 </span>
-                <h3 className="text-lg font-extrabold text-[#163063]">
+                <h3 className="text-lg font-semibold text-[#163063]">
                   {selectedInquiry.entityName || selectedInquiry.entityTypeName}
                 </h3>
               </div>
@@ -573,7 +573,7 @@ export default function LeadsCrmPage() {
                       : ""}
                   </span>
                 </div>
-                <div className="text-left font-mono" dir="ltr">
+                <div className="text-left font-medium" dir="ltr">
                   <p className="font-bold text-[#2360A5]">
                     {selectedInquiry.contactPhone}
                   </p>

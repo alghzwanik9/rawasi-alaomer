@@ -117,7 +117,7 @@ export default async function ProcedureGuidePage({ params }: GuidePageProps) {
           <section className="mt-14 pt-10 border-t border-[#E2ECF5]">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-xl font-bold text-[#163063] flex items-center gap-2">
+                <h3 className="text-xl font-semibold text-[#163063] flex items-center gap-2">
                   <BookOpen className="w-5 h-5 text-[#2360A5]" />
                   <span>إجراءات ذات صلة في مرجع الجمعيات</span>
                 </h3>
@@ -144,7 +144,7 @@ export default async function ProcedureGuidePage({ params }: GuidePageProps) {
                 >
                   <div>
                     <div className="flex items-center justify-between text-xs mb-2">
-                      <span className="font-mono text-[#526071] text-[11px]">
+                      <span className="font-semibold text-[#526071] text-[11px] tracking-wide">
                         {rel.code}
                       </span>
                       <span className="text-[#3488C4] font-semibold flex items-center gap-1 text-[11px]">
@@ -152,7 +152,7 @@ export default async function ProcedureGuidePage({ params }: GuidePageProps) {
                         {rel.expectedTime}
                       </span>
                     </div>
-                    <h4 className="text-sm font-bold text-[#163063] group-hover:text-[#2360A5] transition-colors mb-2 leading-snug">
+                    <h4 className="text-sm font-semibold text-[#163063] group-hover:text-[#2360A5] transition-colors mb-2 leading-snug">
                       {rel.title}
                     </h4>
                     <p className="text-xs text-[#526071] line-clamp-2 leading-relaxed">

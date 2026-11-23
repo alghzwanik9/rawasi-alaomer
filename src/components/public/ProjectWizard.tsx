@@ -366,7 +366,7 @@ export function ProjectWizard() {
             </div>
 
             {/* Main Title & Positioning */}
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug tracking-tight mb-3">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight mb-3">
               لنصنع معاً مشروعاً مستداماً
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md mb-10 font-normal">
@@ -605,7 +605,7 @@ export function ProjectWizard() {
                 <span>تم تأهيل وتسجيل الطلب بنجاح</span>
               </span>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mb-3">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#163063] mb-3 leading-tight">
                 شكراً لتواصلكم مع رواسي العمر
               </h2>
               <p className="text-sm sm:text-base text-[#526071] leading-relaxed mb-8 max-w-xl mx-auto">
@@ -639,7 +639,7 @@ export function ProjectWizard() {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-extrabold font-mono text-[#163063] tracking-wide">
+                  <span className="text-2xl font-bold text-[#163063] tracking-wide">
                     {submittedRefId}
                   </span>
                   <span className="text-xs px-2.5 py-1 rounded-md bg-white border border-[#E2ECF5] text-[#163063] font-semibold">
@@ -706,7 +706,7 @@ export function ProjectWizard() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mb-2 tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-[#163063] mb-2 tracking-tight leading-tight">
                     ما هو تصنيف ونوع جهتك أو منظمتكم؟
                   </h2>
                   <p className="text-sm sm:text-base text-[#526071] mb-8 font-normal leading-relaxed">
@@ -791,7 +791,7 @@ export function ProjectWizard() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mb-2 tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-[#163063] mb-2 tracking-tight leading-tight">
                     ما هي القطاعات أو الخدمات التي تحتاجها منظمتكم؟
                   </h2>
                   <p className="text-sm sm:text-base text-[#526071] mb-8 font-normal leading-relaxed">
@@ -891,7 +891,7 @@ export function ProjectWizard() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mb-2 tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-[#163063] mb-2 tracking-tight leading-tight">
                     نطاق المشروع، النطاق الجغرافي، والميزانية
                   </h2>
                   <p className="text-sm sm:text-base text-[#526071] mb-8 font-normal leading-relaxed">
@@ -1020,7 +1020,7 @@ export function ProjectWizard() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mb-2 tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-[#163063] mb-2 tracking-tight leading-tight">
                     بيانات التواصل ومسؤول المشروع المعتمد
                   </h2>
                   <p className="text-sm sm:text-base text-[#526071] mb-8 font-normal leading-relaxed">

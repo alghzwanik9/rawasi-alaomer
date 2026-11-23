@@ -60,7 +60,7 @@ export function HomeMethodology() {
               منهجية رواسي العمر
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] tracking-tight">
             رحلة متقنة من الفكرة إلى استقرار الأثر
           </h2>
           <p className="text-base sm:text-lg text-[#526071] mt-4 leading-relaxed font-normal">

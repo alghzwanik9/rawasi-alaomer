@@ -150,10 +150,10 @@ export function MarjeaClient({
           </div>
 
           {/* Main Titles */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] mb-3 tracking-tight font-arabic">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] mb-3 tracking-tight">
             مرجع الجمعيات
           </h1>
-          <p className="text-xl sm:text-2xl font-bold text-[#3488C4] mb-4">
+          <p className="text-xl sm:text-2xl font-semibold text-[#3488C4] mb-4">
             من السؤال المتكرر... إلى المعرفة المستدامة
           </p>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-[#526071] leading-relaxed mb-10">
@@ -189,7 +189,7 @@ export function MarjeaClient({
                 )}
 
                 {/* Keyboard Shortcut Hint */}
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 hidden md:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-[#F2F8FC] border border-[#E2ECF5] text-[#526071]">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 hidden md:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#F2F8FC] border border-[#E2ECF5] text-[#526071]">
                   Ctrl + K
                 </span>
               </div>
@@ -291,7 +291,7 @@ export function MarjeaClient({
                   >
                     <div>
                       <div className="flex items-center justify-between text-[11px] mb-1.5">
-                        <span className="font-mono text-[#526071]">
+                        <span className="font-semibold text-[#526071] tracking-wide">
                           {proc.code}
                         </span>
                         <span className="text-[#3488C4] font-semibold flex items-center gap-1">

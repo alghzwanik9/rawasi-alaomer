@@ -63,7 +63,7 @@ export function HomeMetrics() {
 
                 <div className="flex items-baseline justify-between mb-2">
                   <span
-                    className={`text-3xl sm:text-4xl font-extrabold ${item.colorClass} tracking-tight font-arabic`}
+                    className={`text-3xl sm:text-4xl font-bold ${item.colorClass} tracking-tight font-arabic`}
                   >
                     {item.num}
                   </span>
@@ -72,7 +72,7 @@ export function HomeMetrics() {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-[#163063] mb-2 font-arabic">
+                <h3 className="text-lg font-semibold text-[#163063] mb-2 font-arabic">
                   {item.label}
                 </h3>
                 <p className="text-sm text-[#526071] leading-relaxed font-normal font-arabic">

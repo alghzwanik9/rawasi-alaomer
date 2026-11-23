@@ -23,7 +23,7 @@ export function HomeTracks() {
               مسارات الخدمة الرئيسية
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] tracking-tight">
             وجهتان متكاملتان تلبيان تطلعات شركاء النجاح
           </h2>
           <p className="text-base sm:text-lg text-[#526071] mt-4 leading-relaxed font-normal">
@@ -53,7 +53,7 @@ export function HomeTracks() {
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mb-4">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-[#163063] mb-4">
                 بوابة القطاع غير الربحي والوقفي
               </h3>
               <p className="text-base text-[#526071] mb-8 leading-relaxed">
@@ -107,7 +107,7 @@ export function HomeTracks() {
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mb-4">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-[#163063] mb-4">
                 بوابة الأعمال والمطورين والمستثمرين
               </h3>
               <p className="text-base text-[#526071] mb-8 leading-relaxed">

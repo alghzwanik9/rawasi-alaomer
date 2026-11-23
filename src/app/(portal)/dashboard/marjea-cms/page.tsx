@@ -201,11 +201,11 @@ export default function MarjeaCmsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <h1 className="text-2xl font-extrabold text-[#163063] flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-[#163063] flex items-center gap-2">
               <BookOpenCheck className="w-6 h-6 text-[#47A3B8]" />
               <span>حوكمة وإدارة محتوى مرجع الجمعيات (Maker-Checker CMS)</span>
             </h1>
-            <span className="text-xs font-mono font-bold bg-[#2360A5] text-white px-2 py-0.5 rounded-full">
+            <span className="text-xs font-semibold bg-[#2360A5] text-white px-2.5 py-0.5 rounded-full">
               {items.length} إجراء
             </span>
           </div>
@@ -280,7 +280,7 @@ export default function MarjeaCmsPage() {
           </div>
         </div>
 
-        <div className="text-[11px] font-mono text-[#526071]">
+        <div className="text-[11px] font-medium text-[#526071]">
           الدور النشط: <strong>{currentUser.roleTitle}</strong>
         </div>
       </div>
@@ -345,7 +345,7 @@ export default function MarjeaCmsPage() {
                   key={item.id}
                   className="hover:bg-[#F2F8FC]/50 transition-colors"
                 >
-                  <td className="py-3.5 px-4 font-mono font-bold text-[#163063]">
+                  <td className="py-3.5 px-4 font-bold text-[#163063] tracking-wide">
                     {item.code}
                   </td>
                   <td className="py-3.5 px-4 max-w-[280px]">
@@ -438,7 +438,7 @@ export default function MarjeaCmsPage() {
         <div className="fixed inset-0 bg-[#163063]/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl border border-[#E2ECF5] max-w-md w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between border-b border-[#E2ECF5] pb-3">
-              <h3 className="text-base font-extrabold text-[#163063]">
+              <h3 className="text-base font-semibold text-[#163063]">
                 إنشاء مسودة دليل إجرائي جديد (Supabase Live)
               </h3>
               <button

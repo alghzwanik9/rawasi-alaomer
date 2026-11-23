@@ -122,7 +122,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
                 </div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#163063] leading-tight">
                 {sector.title}
               </h1>
               <p className="text-lg sm:text-xl font-semibold text-[#3488C4]">
@@ -161,7 +161,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
           {/* Scope & Beneficiaries */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-7 bg-[#F2F8FC] rounded-3xl p-8 border border-[#E2ECF5]">
-              <h2 className="text-2xl font-extrabold text-[#163063] mb-6 flex items-center gap-2.5">
+              <h2 className="text-2xl font-bold leading-tight text-[#163063] mb-6 flex items-center gap-2.5">
                 <Layers className="w-6 h-6 text-[#2360A5]" />
                 <span>نطاق العمل والخدمات التنفيذية</span>
               </h2>
@@ -179,7 +179,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
 
             <div className="lg:col-span-5 bg-white rounded-3xl p-8 border border-[#E2ECF5] shadow-xs flex flex-col justify-between">
               <div>
-                <h2 className="text-2xl font-extrabold text-[#163063] mb-6 flex items-center gap-2.5">
+                <h2 className="text-2xl font-bold leading-tight text-[#163063] mb-6 flex items-center gap-2.5">
                   <Users className="w-6 h-6 text-[#3488C4]" />
                   <span>الجهات المستفيدة</span>
                 </h2>
@@ -214,7 +214,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
               <span className="text-xs font-bold text-[#47A3B8]">
                 الوضوح قبل التنفيذ
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mt-1 flex items-center gap-2.5">
+              <h2 className="text-2xl sm:text-3xl font-bold leading-tight text-[#163063] mt-1 flex items-center gap-2.5">
                 <FileCheck2 className="w-7 h-7 text-[#2360A5]" />
                 <span>المخرجات والوثائق المسلمة للشريك</span>
               </h2>
@@ -229,7 +229,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
                   <span className="inline-flex w-8 h-8 rounded-lg bg-[#163063] text-white text-xs font-bold items-center justify-center mb-4">
                     0{idx + 1}
                   </span>
-                  <h3 className="text-base font-bold text-[#163063] mb-2">
+                  <h3 className="text-base font-semibold text-[#163063] mb-2">
                     {del.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#526071] leading-relaxed">
@@ -246,7 +246,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
       <section className="py-14 bg-[#F2F8FC]">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-extrabold text-[#163063]">
+            <h3 className="text-xl font-semibold text-[#163063]">
               تكامل مع قطاعاتنا الأخرى
             </h3>
             <Link
@@ -264,7 +264,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
                 className="p-5 rounded-2xl bg-white border border-[#E2ECF5] hover:border-[#2360A5] transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <span className="text-xs font-mono font-bold text-[#3488C4]">
+                  <span className="text-xs font-semibold text-[#3488C4]">
                     قطاع {other.number}
                   </span>
                   <h4 className="text-sm font-bold text-[#163063] group-hover:text-[#2360A5] mt-1 mb-2">

@@ -25,7 +25,7 @@ export function HomeCta() {
               <Flag className="w-8 h-8 text-[#163063]" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] mb-5 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] mb-5 tracking-tight">
               هل أنت مستعد لبدء مشروعك القادم بثقة واستدامة؟
             </h2>
 

@@ -106,11 +106,11 @@ export default function TeamPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <h1 className="text-2xl font-extrabold text-[#163063] flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-[#163063] flex items-center gap-2">
               <Users2 className="w-6 h-6 text-[#163063]" />
               <span>فريق العمل ومصفوفة الصلاحيات (RBAC Team Matrix)</span>
             </h1>
-            <span className="text-xs font-mono font-bold bg-[#163063] text-white px-2 py-0.5 rounded-full">
+            <span className="text-xs font-semibold bg-[#163063] text-white px-2.5 py-0.5 rounded-full">
               {members.length} أعضاء
             </span>
           </div>
@@ -220,7 +220,7 @@ export default function TeamPage() {
                       </div>
                     </td>
 
-                    <td className="py-3.5 px-4 font-mono text-[#526071]" dir="ltr">
+                    <td className="py-3.5 px-4 font-medium text-[#526071]" dir="ltr">
                       {m.email}
                     </td>
 
@@ -228,7 +228,7 @@ export default function TeamPage() {
                       <span className="font-bold text-[#163063] block">
                         {m.role}
                       </span>
-                      <span className="font-mono text-[10px] text-[#2360A5]">
+                      <span className="font-semibold text-[10px] text-[#2360A5]">
                         ({m.roleId})
                       </span>
                     </td>

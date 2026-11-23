@@ -49,7 +49,7 @@ export default function SectorsOverviewPage() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] mb-4 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] mb-4 tracking-tight">
             قطاعاتنا الخمسة المتخصصة
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-[#526071] leading-relaxed">
@@ -75,7 +75,7 @@ export default function SectorsOverviewPage() {
                   <div>
                     <div className="flex items-center gap-2">
                       <span
-                        className="text-xs font-black font-mono px-2 py-0.5 rounded bg-[#F2F8FC] border border-[#E2ECF5]"
+                        className="text-xs font-bold px-2 py-0.5 rounded bg-[#F2F8FC] border border-[#E2ECF5]"
                         style={{ color: sector.accentColor }}
                       >
                         قطاع {sector.number}
@@ -84,7 +84,7 @@ export default function SectorsOverviewPage() {
                         {sector.badgeText}
                       </span>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-[#163063] mt-1">
+                    <h2 className="text-2xl sm:text-3xl font-bold leading-tight text-[#163063] mt-1">
                       {sector.title}
                     </h2>
                   </div>

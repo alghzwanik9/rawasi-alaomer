@@ -133,7 +133,7 @@ ${procedure.steps
             <span className="px-3 py-1 rounded-md text-xs font-bold bg-[#47A3B8]/15 text-[#163063] border border-[#47A3B8]/30">
               {procedure.lastUpdated}
             </span>
-            <span className="text-xs text-[#163063]/60 font-mono font-medium">
+            <span className="text-xs text-[#163063]/70 font-semibold tracking-wide">
               معرف الإجراء: {procedure.code}
             </span>
             <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-[#2360A5]/10 text-[#2360A5]">
@@ -187,7 +187,7 @@ ${procedure.steps
           </div>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#163063] leading-snug">
+        <h2 className="text-2xl sm:text-3xl font-bold text-[#163063] leading-tight">
           إجراء: {procedure.title}
         </h2>
         <p className="mt-2.5 text-sm md:text-base text-[#526071] leading-relaxed max-w-4xl">
@@ -427,7 +427,7 @@ ${procedure.steps
               <span className="w-2 h-2 rounded-full bg-[#47A3B8]" />
               <span>إشراف وتنفيذ استشاري مباشر لجمعيتك</span>
             </div>
-            <h4 className="text-xl md:text-2xl font-extrabold text-[#163063]">
+            <h4 className="text-xl md:text-2xl font-semibold text-[#163063]">
               تحتاج فريق رواسي العمر لتنفيذ هذا الإجراء لجمعيتك بالكامل؟
             </h4>
             <p className="text-xs md:text-sm text-[#526071] max-w-2xl leading-relaxed">

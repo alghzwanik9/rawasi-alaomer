@@ -21,12 +21,53 @@ html {
   direction: rtl;
 }
 
+/* Base architectural typography & strict font inheritance */
 body {
   background-color: #FFFFFF;
   color: #0E1D2B;
-  font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-ibm-plex-arabic), var(--font-ibm-plex-sans), 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure buttons, badges, inputs, textareas, selects, and table cells strictly inherit the unified font */
+input,
+button,
+select,
+textarea,
+optgroup,
+table,
+th,
+td {
+  font-family: inherit;
+}
+
+/* Typographic hierarchy for clean, modern architectural feel */
+h1,
+h2 {
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--brand-navy);
+  letter-spacing: -0.015em;
+}
+
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--brand-navy);
+}
+
+p {
+  font-weight: 400;
+  line-height: 1.625;
+  color: var(--brand-body);
+}
+
+/* Interactive elements default weight */
+button,
+[role="button"] {
+  font-weight: 500;
 }
 
 /* Subtle architectural grid background pattern for Hero sections */
@@ -97,6 +138,7 @@ body {
   --color-inverse-on-surface: #F2F8FC;
   --color-inverse-primary: #A5C8FF;
 
-  --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
-  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-arabic: var(--font-ibm-plex-arabic), var(--font-ibm-plex-sans), 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: var(--font-ibm-plex-arabic), var(--font-ibm-plex-sans), 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-ibm-plex-sans), var(--font-ibm-plex-arabic), monospace;
 }

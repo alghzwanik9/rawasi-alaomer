@@ -26,7 +26,7 @@ export function HomeSectors() {
                 منظومة رواسي العمر
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] tracking-tight">
               خمسة قطاعات تنفيذية متخصصة
             </h2>
             <p className="text-base sm:text-lg text-[#526071] mt-3 leading-relaxed">
@@ -56,7 +56,7 @@ export function HomeSectors() {
             className="lg:col-span-7 bg-white p-8 sm:p-9 rounded-3xl border border-[#E2ECF5] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
           >
             <div className="flex items-center justify-between mb-6">
-              <span className="text-4xl sm:text-5xl font-black text-[#163063]/15 font-arabic">
+              <span className="text-4xl sm:text-5xl font-bold text-[#163063]/15 font-arabic">
                 01
               </span>
               <div className="w-14 h-14 rounded-2xl bg-[#F2F8FC] border border-[#E2ECF5] flex items-center justify-center text-[#163063]">
@@ -64,7 +64,7 @@ export function HomeSectors() {
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-[#163063] mb-3">
+              <h3 className="text-2xl font-semibold text-[#163063] mb-3">
                 المقاولات والتطوير الإنشائي
               </h3>
               <p className="text-base text-[#526071] mb-6 leading-relaxed">
@@ -96,7 +96,7 @@ export function HomeSectors() {
             className="lg:col-span-5 bg-white p-8 sm:p-9 rounded-3xl border border-[#E2ECF5] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
           >
             <div className="flex items-center justify-between mb-6">
-              <span className="text-4xl sm:text-5xl font-black text-[#2360A5]/15 font-arabic">
+              <span className="text-4xl sm:text-5xl font-bold text-[#2360A5]/15 font-arabic">
                 02
               </span>
               <div className="w-14 h-14 rounded-2xl bg-[#F2F8FC] border border-[#E2ECF5] flex items-center justify-center text-[#2360A5]">
@@ -104,7 +104,7 @@ export function HomeSectors() {
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-[#163063] mb-3">
+              <h3 className="text-2xl font-semibold text-[#163063] mb-3">
                 التجهيز والتوريد المتكامل
               </h3>
               <p className="text-base text-[#526071] mb-6 leading-relaxed">
@@ -135,7 +135,7 @@ export function HomeSectors() {
             className="lg:col-span-4 bg-white p-7 sm:p-8 rounded-3xl border border-[#E2ECF5] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
           >
             <div className="flex items-center justify-between mb-5">
-              <span className="text-3xl sm:text-4xl font-black text-[#3488C4]/20 font-arabic">
+              <span className="text-3xl sm:text-4xl font-bold text-[#3488C4]/20 font-arabic">
                 03
               </span>
               <div className="w-12 h-12 rounded-2xl bg-[#F2F8FC] border border-[#E2ECF5] flex items-center justify-center text-[#3488C4]">
@@ -143,7 +143,7 @@ export function HomeSectors() {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-[#163063] mb-2.5">
+              <h3 className="text-xl font-semibold text-[#163063] mb-2.5">
                 التقنية والحلول الذكية
               </h3>
               <p className="text-sm text-[#526071] mb-5 leading-relaxed">
@@ -172,7 +172,7 @@ export function HomeSectors() {
             className="lg:col-span-4 bg-white p-7 sm:p-8 rounded-3xl border border-[#E2ECF5] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
           >
             <div className="flex items-center justify-between mb-5">
-              <span className="text-3xl sm:text-4xl font-black text-[#2360A5]/20 font-arabic">
+              <span className="text-3xl sm:text-4xl font-bold text-[#2360A5]/20 font-arabic">
                 04
               </span>
               <div className="w-12 h-12 rounded-2xl bg-[#F2F8FC] border border-[#E2ECF5] flex items-center justify-center text-[#2360A5]">
@@ -180,7 +180,7 @@ export function HomeSectors() {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-[#163063] mb-2.5">
+              <h3 className="text-xl font-semibold text-[#163063] mb-2.5">
                 التشغيل والصيانة المستدامة
               </h3>
               <p className="text-sm text-[#526071] mb-5 leading-relaxed">
@@ -209,7 +209,7 @@ export function HomeSectors() {
             className="lg:col-span-4 bg-white p-7 sm:p-8 rounded-3xl border border-[#E2ECF5] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
           >
             <div className="flex items-center justify-between mb-5">
-              <span className="text-3xl sm:text-4xl font-black text-[#47A3B8]/25 font-arabic">
+              <span className="text-3xl sm:text-4xl font-bold text-[#47A3B8]/25 font-arabic">
                 05
               </span>
               <div className="w-12 h-12 rounded-2xl bg-[#F2F8FC] border border-[#E2ECF5] flex items-center justify-center text-[#47A3B8]">
@@ -217,7 +217,7 @@ export function HomeSectors() {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-[#163063] mb-2.5">
+              <h3 className="text-xl font-semibold text-[#163063] mb-2.5">
                 المشاريع والمبادرات المجتمعية
               </h3>
               <p className="text-sm text-[#526071] mb-5 leading-relaxed">

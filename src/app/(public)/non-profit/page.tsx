@@ -31,7 +31,7 @@ export default function NonProfitPortalPage() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] mb-4 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] mb-4 tracking-tight">
             بوابة القطاع غير الربحي والوقفي
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-[#526071] leading-relaxed mb-8">
@@ -68,7 +68,7 @@ export default function NonProfitPortalPage() {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>منصة معرفية مفتوحة للقطاع الثالث</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold">
+              <h2 className="text-2xl sm:text-3xl font-bold leading-tight">
                 مرجع الجمعيات: من السؤال المتكرر... إلى المعرفة المستدامة
               </h2>
               <p className="text-sm text-slate-200 max-w-2xl leading-relaxed">
@@ -99,7 +99,7 @@ export default function NonProfitPortalPage() {
             <span className="text-xs font-bold text-[#2360A5]">
               منهجية التمكين الشاملة
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#163063] mt-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-[#163063] mt-2">
               المسارات الستة المتكاملة للجمعيات والأوقاف
             </h2>
           </div>
@@ -117,14 +117,14 @@ export default function NonProfitPortalPage() {
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className="text-2xl font-black font-mono"
+                      className="text-2xl font-bold"
                       style={{ color: track.color }}
                     >
                       {track.num}
                     </span>
                     <ShieldCheck className="w-5 h-5 text-[#47A3B8]" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#163063] mb-3">
+                  <h3 className="text-xl font-semibold text-[#163063] mb-3">
                     {track.title}
                   </h3>
                   <p className="text-sm text-[#526071] leading-relaxed mb-6">
@@ -162,7 +162,7 @@ export default function NonProfitPortalPage() {
                 <Landmark className="w-4 h-4" />
                 <span>خدمات الأوقاف والجهات المانحة</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#163063]">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-[#163063]">
                 من تأسيس الوقف وإدارة أصوله إلى توجيه ريعه للأثر
               </h3>
               <p className="text-sm sm:text-base text-[#526071] leading-relaxed">

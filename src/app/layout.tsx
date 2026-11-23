@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Sans_Arabic, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex-arabic",
+  display: "swap",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "رواسي العمر | جهة واحدة، مسار واضح للتطوير والتنفيذ",
@@ -16,20 +31,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="min-h-screen bg-white text-[#0E1D2B] antialiased flex flex-col font-arabic">
+    <html
+      lang="ar"
+      dir="rtl"
+      className={`scroll-smooth ${ibmPlexSansArabic.variable} ${ibmPlexSans.variable}`}
+    >
+      <body
+        className={`min-h-screen bg-white text-[#0E1D2B] antialiased flex flex-col font-arabic ${ibmPlexSansArabic.className}`}
+      >
         {children}
       </body>
     </html>

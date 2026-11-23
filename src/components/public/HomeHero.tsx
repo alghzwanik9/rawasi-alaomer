@@ -36,7 +36,7 @@ export function HomeHero() {
             </div>
 
             {/* Bold Display Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#163063] tracking-tight leading-[1.25]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#163063] tracking-tight leading-tight">
               نصنع المشاريع... ونبني لها{" "}
               <span className="text-[#2360A5] block sm:inline">
                 عمراً من الأثر.

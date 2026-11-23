@@ -33,7 +33,7 @@ export default function ImpactLabPage() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] mb-4 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] mb-4 tracking-tight">
             الحوكمة، قياس الأثر، والنماذج الجاهزة للانطلاق
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-[#526071] leading-relaxed">
@@ -52,7 +52,7 @@ export default function ImpactLabPage() {
               <span className="text-xs font-bold text-[#2360A5]">
                 إطار القياس المعتمد
               </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#163063] mt-1">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-[#163063] mt-1">
                 منهجية قياس العائد الاجتماعي والأثر بعد التسليم (SROI)
               </h2>
             </div>
@@ -102,7 +102,7 @@ export default function ImpactLabPage() {
                       {phase.icon}
                     </div>
                     <span
-                      className="text-xl font-black font-mono"
+                      className="text-xl font-bold"
                       style={{ color: phase.color }}
                     >
                       {phase.step}
@@ -128,7 +128,7 @@ export default function ImpactLabPage() {
             <span className="text-xs font-bold text-[#2360A5]">
               نماذج تنفيذية جاهزة للانطلاق (Turnkey Blueprints)
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#163063] mt-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-[#163063] mt-2">
               ثلاث باقات معيارية تبدأ التنفيذ من اليوم الأول
             </h2>
             <p className="text-sm sm:text-base text-[#526071] mt-3 leading-relaxed">
@@ -150,7 +150,7 @@ export default function ImpactLabPage() {
 
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-[#526071]">
+                    <span className="text-xs font-semibold text-[#526071] tracking-wide">
                       {bp.code}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2360A5] bg-[#F2F8FC] px-3 py-1 rounded-full border border-[#E2ECF5]">
@@ -159,7 +159,7 @@ export default function ImpactLabPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-extrabold text-[#163063] mb-3 leading-snug">
+                  <h3 className="text-xl font-semibold text-[#163063] mb-3 leading-snug">
                     {bp.title}
                   </h3>
                   <p className="text-sm text-[#526071] leading-relaxed mb-5">

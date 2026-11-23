@@ -132,7 +132,7 @@ export default function DashboardLayout({
             >
               <Sparkles className="w-3.5 h-3.5 text-[#3488C4]" />
               <span className="hidden sm:inline text-[#526071]">الدور الحالي:</span>
-              <span className="font-extrabold text-[#2360A5]">
+              <span className="font-bold text-[#2360A5]">
                 {isSwitchingRole
                   ? "جاري تبديل جلسة Supabase..."
                   : `${currentUser.name.split(" ")[0]} (${currentUser.roleTitle})`}

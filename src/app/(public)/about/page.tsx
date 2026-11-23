@@ -33,7 +33,7 @@ export default function AboutPage() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#163063] mb-5 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#163063] mb-5 tracking-tight">
             جهة واحدة، مسار واضح للتطوير والتنفيذ
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-[#526071] leading-relaxed">
@@ -51,7 +51,7 @@ export default function AboutPage() {
             <span className="text-xs font-bold text-[#3488C4] tracking-wide uppercase">
               دلالة الاسم والمنهج
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#163063] mt-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-[#163063] mt-2">
               فلسفة «الرواسي» و«العمر»
             </h2>
           </div>
@@ -63,7 +63,7 @@ export default function AboutPage() {
               <div className="w-14 h-14 rounded-2xl bg-white border border-[#E2ECF5] flex items-center justify-center mb-6 shadow-xs">
                 <Anchor className="w-7 h-7 text-[#163063]" />
               </div>
-              <h3 className="text-2xl font-extrabold text-[#163063] mb-3">
+              <h3 className="text-2xl font-semibold text-[#163063] mb-3">
                 «الرواسي» — الثبات والمتانة
               </h3>
               <p className="text-sm sm:text-base text-[#526071] leading-relaxed mb-6">
@@ -92,7 +92,7 @@ export default function AboutPage() {
               <div className="w-14 h-14 rounded-2xl bg-white border border-[#E2ECF5] flex items-center justify-center mb-6 shadow-xs">
                 <Sparkles className="w-7 h-7 text-[#47A3B8]" />
               </div>
-              <h3 className="text-2xl font-extrabold text-[#163063] mb-3">
+              <h3 className="text-2xl font-semibold text-[#163063] mb-3">
                 «العمر» — امتداد القيمة والأثر بعد التسليم
               </h3>
               <p className="text-sm sm:text-base text-[#526071] leading-relaxed mb-6">
@@ -126,7 +126,7 @@ export default function AboutPage() {
               <div className="p-2.5 rounded-xl bg-[#163063] text-white">
                 <Eye className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-extrabold text-[#163063]">رؤيتنا</h3>
+              <h3 className="text-xl font-semibold text-[#163063]">رؤيتنا</h3>
             </div>
             <p className="text-sm sm:text-base text-[#526071] leading-relaxed">
               أن نكون الشريك الاستشاري والتنفيذي الأكثر موثوقية في المملكة
@@ -141,7 +141,7 @@ export default function AboutPage() {
               <div className="p-2.5 rounded-xl bg-[#2360A5] text-white">
                 <Target className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-extrabold text-[#163063]">رسالتنا</h3>
+              <h3 className="text-xl font-semibold text-[#163063]">رسالتنا</h3>
             </div>
             <p className="text-sm sm:text-base text-[#526071] leading-relaxed">
               توحيد رحلة المشروع من الفكرة والتأسيس النظامي إلى البناء والتجهيز
@@ -159,7 +159,7 @@ export default function AboutPage() {
             <span className="text-xs font-bold text-[#2360A5]">
               كيف نحقق الوعد؟
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#163063] mt-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-[#163063] mt-2">
               ركائز التنفيذ الثلاث في رواسي العمر
             </h2>
           </div>
@@ -198,13 +198,13 @@ export default function AboutPage() {
                       {pillar.icon}
                     </div>
                     <span
-                      className="text-3xl font-black opacity-20"
+                      className="text-3xl font-bold opacity-20"
                       style={{ color: pillar.color }}
                     >
                       {pillar.num}
                     </span>
                   </div>
-                  <h3 className="text-xl font-extrabold text-[#163063] mb-3">
+                  <h3 className="text-xl font-semibold text-[#163063] mb-3">
                     {pillar.title}
                   </h3>
                   <p className="text-sm text-[#526071] leading-relaxed">
@@ -227,7 +227,7 @@ export default function AboutPage() {
                   <ShieldCheck className="w-4 h-4" />
                   <span>ميثاق رواسي العمر</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold leading-snug">
+                <h2 className="text-2xl sm:text-3xl font-bold leading-tight">
                   التزامنا الأخلاقي والمهني أمام كل شريك
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">

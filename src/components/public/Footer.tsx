@@ -104,7 +104,7 @@ export function Footer() {
                   href="/impact"
                   className="hover:text-white transition-colors"
                 >
-                  الحوكمة والأثر
+                  منهجية قياس الأثر ونماذج التنفيذ
                 </Link>
               </li>
               <li>

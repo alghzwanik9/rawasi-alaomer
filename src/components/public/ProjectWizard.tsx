@@ -177,6 +177,29 @@ export function ProjectWizard() {
       searchParams.get("track") || searchParams.get("sector");
     const entityParam = searchParams.get("entity");
     const procParam = searchParams.get("procedure");
+    const blueprintParam = searchParams.get("blueprint");
+
+    if (blueprintParam) {
+      if (blueprintParam === "BP-NPO-01") {
+        setEntityType("charity");
+        setSelectedServices(["governance", "contracting", "procurement", "tech-solutions"]);
+        setProjectNotes((prev) =>
+          prev || "طلب تنفيذ نموذج إطلاق وتشغيل مقر جمعية أهلية متكامل (BP-NPO-01)."
+        );
+      } else if (blueprintParam === "BP-WQF-02") {
+        setEntityType("waqf");
+        setSelectedServices(["contracting", "operations", "social-initiatives"]);
+        setProjectNotes((prev) =>
+          prev || "طلب تنفيذ نموذج تأهيل وتشغيل الأصل الوقفي المستدام (BP-WQF-02)."
+        );
+      } else if (blueprintParam === "BP-CSR-03") {
+        setEntityType("private");
+        setSelectedServices(["social-initiatives", "governance", "tech-solutions"]);
+        setProjectNotes((prev) =>
+          prev || "طلب تنفيذ نموذج مبادرة مسؤولية اجتماعية للشركات (BP-CSR-03)."
+        );
+      }
+    }
 
     if (trackParam) {
       const trackMap: Record<string, string> = {

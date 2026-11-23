@@ -3,49 +3,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Network, RefreshCw, GitFork, CheckCircle2 } from "lucide-react";
+import { STRUCTURAL_METRICS } from "@/data/siteContent";
 
-const metrics = [
-  {
-    num: "5",
-    label: "قطاعات تنفيذية",
-    desc: "منظومة متكاملة تحت مظلة واحدة تغطي التطوير، التجهيز، التقنية، التشغيل، والمشاريع المجتمعية.",
-    icon: Network,
-    accent: "#163063",
-    colorClass: "text-[#163063]",
-  },
-  {
-    num: "360°",
-    label: "دورة حياة كاملة",
-    desc: "مرافقة مؤسسية وميدانية شاملة تبدأ من دراسة الجدوى وتستمر حتى استقرار التشغيل والأثر.",
-    icon: RefreshCw,
-    accent: "#2360A5",
-    colorClass: "text-[#2360A5]",
-  },
-  {
-    num: "6",
-    label: "مسارات تخصصية",
-    desc: "حلول دقيقة للقطاع غير الربحي تشمل التراخيص، الحوكمة الرشيدة، وبناء الأصول الوقفية المستدامة.",
-    icon: GitFork,
-    accent: "#3488C4",
-    colorClass: "text-[#3488C4]",
-  },
-  {
-    num: "100%",
-    label: "التزام وحوكمة",
-    desc: "مخرجات تنفيذية تتوافق تماماً مع الأنظمة واللوائح الرسمية ومعايير المركز الوطني لتنمية القطاع غير الربحي.",
-    icon: CheckCircle2,
-    accent: "#47A3B8",
-    colorClass: "text-[#47A3B8]",
-  },
-];
+const metricIcons = [Network, RefreshCw, GitFork, CheckCircle2];
 
 export function HomeMetrics() {
   return (
     <section className="w-full bg-[#F2F8FC] py-14 border-b border-[#E2ECF5]">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {metrics.map((item, index) => {
-            const Icon = item.icon;
+          {STRUCTURAL_METRICS.map((item, index) => {
+            const Icon = metricIcons[index % metricIcons.length];
             return (
               <motion.div
                 key={item.label}

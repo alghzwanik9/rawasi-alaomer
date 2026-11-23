@@ -132,7 +132,7 @@ export function HomeMethodology() {
               className="inline-flex items-center gap-2 bg-white hover:bg-[#E2ECF5] text-[#163063] font-bold text-sm px-6 py-3.5 rounded-xl border border-[#E2ECF5] shadow-sm hover:shadow transition-all"
             >
               <Eye className="w-4 h-4 text-[#2360A5]" />
-              <span>استكشف دليل الحوكمة والأثر</span>
+              <span>استكشف منهجية قياس الأثر ونماذج التنفيذ</span>
             </Link>
           </div>
         </motion.div>

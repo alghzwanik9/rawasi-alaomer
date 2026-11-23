@@ -17,6 +17,45 @@ export interface SectorDetail {
   slaHighlight: string;
 }
 
+export interface StructuralMetric {
+  num: string;
+  label: string;
+  desc: string;
+  accent: string;
+  colorClass: string;
+}
+
+export const STRUCTURAL_METRICS: StructuralMetric[] = [
+  {
+    num: "5",
+    label: "قطاعات تنفيذية",
+    desc: "منظومة متكاملة تحت مظلة واحدة تغطي التطوير الإنشائي، التجهيز والتوريد، التقنية، التشغيل، والمشاريع المجتمعية.",
+    accent: "#163063",
+    colorClass: "text-[#163063]",
+  },
+  {
+    num: "360°",
+    label: "دورة حياة كاملة",
+    desc: "مرافقة مؤسسية وميدانية شاملة تبدأ من دراسة الجدوى وتستمر حتى استقرار التشغيل وقياس الأثر المستدام.",
+    accent: "#2360A5",
+    colorClass: "text-[#2360A5]",
+  },
+  {
+    num: "6",
+    label: "مسارات تخصصية",
+    desc: "حلول دقيقة لتمكين القطاع غير الربحي تشمل التراخيص، الحوكمة الرشيدة، وبناء الأصول الوقفية المستدامة.",
+    accent: "#3488C4",
+    colorClass: "text-[#3488C4]",
+  },
+  {
+    num: "100%",
+    label: "التزام وحوكمة",
+    desc: "مخرجات تنفيذية تتوافق تماماً مع الأنظمة واللوائح الرسمية ومعايير المركز الوطني لتنمية القطاع غير الربحي.",
+    accent: "#47A3B8",
+    colorClass: "text-[#47A3B8]",
+  },
+];
+
 export const SECTORS_DATA: SectorDetail[] = [
   {
     slug: "contracting",

@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+// Rawasi Al-Omar Production Platform
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,

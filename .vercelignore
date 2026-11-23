@@ -1,0 +1,18 @@
+# Local and environment secrets
+.env*.local
+.env
+
+# Version control & IDE
+.git
+.gitignore
+.vscode
+
+# Build output
+.next
+out
+
+# Internal agent skills, scripts and scratch
+.agents
+scripts
+supabase
+*.log

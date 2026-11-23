@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   Clock,
@@ -27,7 +27,28 @@ export function UnifiedProcedureCard({
   isStandalone = false,
 }: UnifiedProcedureCardProps) {
   const [downloadedId, setDownloadedId] = useState<string | null>(null);
+  const [downloadCounts, setDownloadCounts] = useState<Record<string, number>>({});
   const [copiedLink, setCopiedLink] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch(`/api/marjea/templates/download?procedureId=${procedure.id}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!isMounted || !data?.templates) return;
+        const counts: Record<string, number> = {};
+        for (const tmpl of data.templates) {
+          if (tmpl.id && typeof tmpl.download_count === "number") {
+            counts[tmpl.id] = tmpl.download_count;
+          }
+        }
+        setDownloadCounts((prev) => ({ ...prev, ...counts }));
+      })
+      .catch(() => {});
+    return () => {
+      isMounted = false;
+    };
+  }, [procedure.id]);
 
   const downloadFallbackDoc = (
     filename: string,
@@ -81,6 +102,26 @@ ${procedure.steps
   ) => {
     setDownloadedId(templateId);
 
+    // 1. Asynchronously increment download_count in Supabase
+    try {
+      fetch("/api/marjea/templates/download", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ templateId, filename }),
+      })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (data?.downloadCount) {
+            setDownloadCounts((prev) => ({
+              ...prev,
+              [templateId]: data.downloadCount,
+            }));
+          }
+        })
+        .catch(() => {});
+    } catch {}
+
+    // 2. Fetch real file from public Supabase Storage bucket
     const supabaseUrl =
       process.env.NEXT_PUBLIC_SUPABASE_URL ||
       "https://qghyfyktqibycanncbkk.supabase.co";
@@ -353,6 +394,7 @@ ${procedure.steps
             {procedure.templates.map((tmpl) => {
               const isExcel = tmpl.fileType === "XLSX";
               const isDownloaded = downloadedId === tmpl.id;
+              const count = downloadCounts[tmpl.id];
 
               return (
                 <div
@@ -361,20 +403,33 @@ ${procedure.steps
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span
-                        className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                          isExcel
-                            ? "bg-emerald-100 text-emerald-800"
-                            : "bg-blue-100 text-[#2360A5]"
-                        }`}
-                      >
-                        {tmpl.format}
-                      </span>
-                      {isExcel ? (
-                        <FileSpreadsheet className="w-5 h-5 text-[#47A3B8]" />
-                      ) : (
-                        <FileText className="w-5 h-5 text-[#3488C4]" />
-                      )}
+                      <div className="flex items-center gap-1.5">
+                        <span
+                          className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                            isExcel
+                              ? "bg-emerald-100 text-emerald-800"
+                              : "bg-blue-100 text-[#2360A5]"
+                          }`}
+                        >
+                          {tmpl.format}
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-[#F2F8FC] text-[#2360A5] border border-[#E2ECF5] flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          سحابي معتمد
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {count !== undefined && count > 0 && (
+                          <span className="text-[10px] text-[#526071] font-medium">
+                            {count} تحميل
+                          </span>
+                        )}
+                        {isExcel ? (
+                          <FileSpreadsheet className="w-5 h-5 text-[#47A3B8]" />
+                        ) : (
+                          <FileText className="w-5 h-5 text-[#3488C4]" />
+                        )}
+                      </div>
                     </div>
                     <h4 className="text-sm font-bold text-[#163063] mb-1.5">
                       {tmpl.title}

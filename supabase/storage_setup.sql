@@ -73,11 +73,36 @@ BEGIN
   END IF;
 END $$;
 
--- 3. Add download_url column to procedure_templates if not present
+-- 3. Add download_url & download_count columns to procedure_templates
 ALTER TABLE public.procedure_templates 
-ADD COLUMN IF NOT EXISTS download_url text;
+ADD COLUMN IF NOT EXISTS download_url text,
+ADD COLUMN IF NOT EXISTS download_count integer DEFAULT 0;
 
--- 4. Set public Supabase Storage URL on all procedure templates
+-- 4. Atomic increment function for template downloads
+CREATE OR REPLACE FUNCTION public.increment_template_download(template_id text)
+RETURNS integer
+LANGUAGE plpgsql
+SECURITY DEFINER
+AS $$
+DECLARE
+  new_count integer;
+BEGIN
+  UPDATE public.procedure_templates
+  SET download_count = COALESCE(download_count, 0) + 1
+  WHERE id = template_id
+  RETURNING download_count INTO new_count;
+  
+  RETURN COALESCE(new_count, 0);
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION public.increment_template_download(text) TO anon, authenticated, service_role;
+
+-- 5. Create templates view alias for unified access
+CREATE OR REPLACE VIEW public.templates AS
+SELECT * FROM public.procedure_templates;
+
+-- 6. Set public Supabase Storage URL on all procedure templates
 UPDATE public.procedure_templates
 SET download_url = 'https://qghyfyktqibycanncbkk.supabase.co/storage/v1/object/public/marjea-templates/' || download_file_name
 WHERE download_url IS NULL OR download_url = '';

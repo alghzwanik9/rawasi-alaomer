@@ -1,3 +1,5 @@
+import { Type } from "@google/genai";
+
 /**
  * Grounded Domain Knowledge Base & Prompt Engineering for Rawasi Al-Omar AI Assistant.
  * Strictly adheres to zero-slop architectural principles and company brand standards.
@@ -89,30 +91,30 @@ export const AI_TOOLS_DECLARATION = [
         description:
           "تقوم بقيد وتأهيل طلب مشروع أو استشارة رسمية لعميل رواسي العمر في النظام وإصدار رقم مرجعي وتوليد رابط الواتساب المباشر.",
         parameters: {
-          type: "OBJECT",
+          type: Type.OBJECT,
           properties: {
             contactName: {
-              type: "STRING",
+              type: Type.STRING,
               description: "اسم العميل أو ممثل الجهة",
             },
             contactPhone: {
-              type: "STRING",
+              type: Type.STRING,
               description: "رقم جوال العميل (يفضل بالصيغة السعودية 05XXXXXXXX أو +966)",
             },
             entityType: {
-              type: "STRING",
+              type: Type.STRING,
               description: "نوع الجهة: charity (جمعية أهلية), waqf (وقف خيري), private (شركة أو قطاع خاص), individual (فرد أو جهة أخرى)",
             },
             sector: {
-              type: "STRING",
+              type: Type.STRING,
               description: "القطاع المعني: contracting (مقاولات), supply (توريد), tech (تقنية), operations (تشغيل), community (غير ربحي), general (عام)",
             },
             cityName: {
-              type: "STRING",
+              type: Type.STRING,
               description: "المدينة (مثل: الرياض، جدة، الدمام، أبها، مكة...)",
             },
             projectSummary: {
-              type: "STRING",
+              type: Type.STRING,
               description: "ملخص موجز لاحتياج العميل والمشروع المطلوب",
             },
           },

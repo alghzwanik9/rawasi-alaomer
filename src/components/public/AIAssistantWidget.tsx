@@ -152,7 +152,7 @@ export function AIAssistantWidget() {
         id: `err_${Date.now()}`,
         role: "assistant",
         content:
-          "نعتذر، تعذر الاتصال المباشر بالخادم في هذه اللحظة. يسعدنا تواصلكم المباشر مع إدارة رواسي العمر عبر واتساب على الرقم: **+966538881885**.",
+          "نعتذر، تعذر الاتصال المباشر بالخادم في هذه اللحظة. يسعدنا تواصلكم المباشر مع إدارة رواسي العمر عبر واتساب على الرقم: **+966 57 599 9956**.",
         suggestions: ["المتابعة عبر واتساب", "أدلة مرجع الجمعيات"],
         createdAt: new Date().toISOString(),
       };
@@ -369,7 +369,7 @@ export function AIAssistantWidget() {
             </form>
             <div className="mt-1.5 flex items-center justify-between text-[10px] text-slate-400 px-1">
               <span>رواسي العمر — جهة واحدة، مسار واضح</span>
-              <span className="font-mono">WhatsApp: 0538881885</span>
+              <span className="font-mono">WhatsApp: 0575999956</span>
             </div>
           </div>
         </div>

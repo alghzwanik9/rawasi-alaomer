@@ -112,7 +112,8 @@ function buildExecutiveWhatsappUrl(params: {
 ${params.entityName ? `*الجهة:* ${params.entityName}\n` : ""}${params.sectorName ? `*القطاع المطلوب:* ${params.sectorName}\n` : ""}${params.cityName ? `*المدينة:* ${params.cityName}\n` : ""}${params.projectSummary ? `*ملخص الاحتياج:* ${params.projectSummary}\n` : ""}
 نأمل التنسيق لبدء الدراسة الهندسية وتحديد موعد للنقاش. شكراً لكم.`;
 
-  return `https://wa.me/966538881885?text=${encodeURIComponent(message)}`;
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "966575999956";
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 const SECTOR_NAME_MAP: Record<string, string> = {
@@ -245,8 +246,9 @@ function getSmartFallbackResponse(userPrompt: string): {
     p.includes("رقم") ||
     p.includes("هاتف")
   ) {
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "966575999956";
     const directUrl =
-      "https://wa.me/966538881885?text=" +
+      `https://wa.me/${whatsappNumber}?text=` +
       encodeURIComponent(
         "السلام عليكم ورحمة الله، تواصلت عبر منصة رواسي العمر وأرغب في استشارة الإدارة التنفيذية بخصوص مشروعي."
       );
@@ -255,13 +257,13 @@ function getSmartFallbackResponse(userPrompt: string): {
 فريقنا الهندسي والاستشاري متاح لخدمتكم ومناقشة تفاصيل المشروع، أو تحديد موعد اجتماع عمل (حضوري أو عن بُعد).
 
 **رقم الاتصال والواتساب المباشر:**
-[+966538881885](${directUrl})
+[+966 57 599 9956](${directUrl})
 
 يمكنكم النقر على الزر أدناه للانتقال الفوري إلى المحادثة مع الإدارة.`,
       leadCreated: {
         refId: "RAO-DIRECT",
         contactName: "الإدارة التنفيذية",
-        contactPhone: "+966538881885",
+        contactPhone: "+966 57 599 9956",
         whatsappUrl: directUrl,
       },
       suggestions: [
@@ -409,7 +411,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         success: true,
         reply:
-          "وصلت إلى الحد الأقصى للمحادثات التلقائية في هذه الجلسة لحماية الموارد. يسعدنا وفريقنا التنفيذي خدمتكم ومتابعة طلبكم مباشرة عبر الواتساب على الرقم المباشر: +966538881885.",
+          "وصلت إلى الحد الأقصى للمحادثات التلقائية في هذه الجلسة لحماية الموارد. يسعدنا وفريقنا التنفيذي خدمتكم ومتابعة طلبكم مباشرة عبر الواتساب على الرقم المباشر: +966 57 599 9956.",
         rateLimited: true,
         suggestions: ["المتابعة عبر واتساب", "استعراض القطاعات", "مرجع الجمعيات"],
       });
@@ -551,7 +553,7 @@ export async function POST(req: NextRequest) {
       {
         success: false,
         reply:
-          "حدث خطأ غير متوقع أثناء معالجة استفسارك. يمكنك التواصل معنا مباشرة على واتساب الإدارة التنفيذية (+966538881885).",
+          "حدث خطأ غير متوقع أثناء معالجة استفسارك. يمكنك التواصل معنا مباشرة على واتساب الإدارة التنفيذية (+966 57 599 9956).",
         error: error.message || "Internal server error",
       },
       { status: 500 }

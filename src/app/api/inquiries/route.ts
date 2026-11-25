@@ -261,7 +261,8 @@ function buildWhatsappUrl(r: Omit<InquiryRecord, "whatsappUrl">): string {
 *رقم الجوال:* ${r.contactPhone}
 ${r.notes ? `*ملاحظات:* ${r.notes}` : ""}`;
 
-  return `https://wa.me/966538881885?text=${encodeURIComponent(message)}`;
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "966575999956";
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 function toSupabaseRow(r: InquiryRecord) {

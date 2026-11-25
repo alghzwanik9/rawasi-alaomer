@@ -22,7 +22,7 @@ export const SEEDED_INQUIRIES: InquiryRecord[] = [
     contactEmail: "s.mansoor@albir-riyadh.sa",
     meetingPreference: "عن بُعد عبر Teams / Zoom",
     status: "new",
-    whatsappUrl: "https://wa.me/966538881885?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B7%D9%84%D8%A8%20RAO-2026-101",
+    whatsappUrl: "https://wa.me/966575999956?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B7%D9%84%D8%A8%20RAO-2026-101",
   },
   {
     id: "inq_seed_102",
@@ -45,7 +45,7 @@ export const SEEDED_INQUIRIES: InquiryRecord[] = [
     contactEmail: "badr@rajhi-waqf.org.sa",
     meetingPreference: "زيارة لمقرنا في الرياض",
     status: "reviewing",
-    whatsappUrl: "https://wa.me/966538881885?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B7%D9%84%D8%A8%20RAO-2026-102",
+    whatsappUrl: "https://wa.me/966575999956?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B7%D9%84%D8%A8%20RAO-2026-102",
   },
   {
     id: "inq_seed_103",
@@ -68,7 +68,7 @@ export const SEEDED_INQUIRIES: InquiryRecord[] = [
     contactEmail: "m.zahrani@osool-dev.sa",
     meetingPreference: "عن بُعد عبر Teams / Zoom",
     status: "contacted",
-    whatsappUrl: "https://wa.me/966538881885?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B7%D9%84%D8%A8%20RAO-2026-103",
+    whatsappUrl: "https://wa.me/966575999956?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B7%D9%84%D8%A8%20RAO-2026-103",
   },
   {
     id: "inq_seed_104",
@@ -91,7 +91,7 @@ export const SEEDED_INQUIRIES: InquiryRecord[] = [
     contactEmail: "h.shehri@benaa-asir.org.sa",
     meetingPreference: "اتصال هاتفي مباشر",
     status: "proposal_sent",
-    whatsappUrl: "https://wa.me/966538881885?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B7%D9%84%D8%A8%20RAO-2026-104",
+    whatsappUrl: "https://wa.me/966575999956?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B7%D9%84%D8%A8%20RAO-2026-104",
   },
 ];
 

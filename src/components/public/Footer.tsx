@@ -133,10 +133,10 @@ export function Footer() {
             </h4>
             <div className="space-y-3 text-sm text-[#D4E3FF]">
               <a
-                href="tel:+966538881885"
+                href="tel:+966575999956"
                 className="flex items-center gap-2 hover:text-white transition-colors dir-ltr justify-end"
               >
-                <span>+966 53 888 1885</span>
+                <span>+966 57 599 9956</span>
                 <Phone className="w-4 h-4 text-[#47A3B8] shrink-0" />
               </a>
               <a

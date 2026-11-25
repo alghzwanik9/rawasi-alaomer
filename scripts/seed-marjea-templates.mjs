@@ -355,7 +355,7 @@ function buildXlsx(tmpl, proc) {
     </row>
     <!-- Footer Note -->
     <row r="11">
-      <c r="B11" t="inlineStr"><is><t>رواسي العمر - جهة واحدة، مسار واضح للتطوير والتنفيذ | هاتف: +966538881885 | rawasialomar.sa</t></is></c>
+      <c r="B11" t="inlineStr"><is><t>رواسي العمر - جهة واحدة، مسار واضح للتطوير والتنفيذ | هاتف: +966 57 599 9956 | rawasialomar.sa</t></is></c>
     </row>
   </sheetData>
 </worksheet>`;

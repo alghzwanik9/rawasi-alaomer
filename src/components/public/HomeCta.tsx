@@ -44,11 +44,11 @@ export function HomeCta() {
               </Link>
 
               <a
-                href="tel:+966538881885"
+                href="tel:+966575999956"
                 className="inline-flex items-center justify-center bg-[#F2F8FC] hover:bg-[#E2ECF5] text-[#163063] font-semibold text-base px-8 py-4 rounded-full border border-[#E2ECF5] transition-all duration-200 gap-2.5 dir-ltr"
               >
                 <Phone className="w-5 h-5 text-[#2360A5]" />
-                <span className="font-bold">+966 53 888 1885</span>
+                <span className="font-bold">+966 57 599 9956</span>
               </a>
             </div>
 

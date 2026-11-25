@@ -359,11 +359,11 @@ export function ProjectWizard() {
             </span>
             <span className="text-[#526071]">استشارات المشاريع والجهات:</span>
             <a
-              href="tel:+966538881885"
+              href="tel:+966575999956"
               dir="ltr"
               className="font-bold text-[#2360A5] hover:text-[#163063]"
             >
-              +966 53 888 1885
+              +966 57 599 9956
             </a>
           </div>
         </div>

@@ -23,7 +23,7 @@
 1. **Missing or Invalid `GEMINI_API_KEY`:** Must gracefully degrade to an intelligent structured fallback with quick navigation buttons and direct WhatsApp contact rather than throwing 500 errors.
 2. **Abuse & Rate Limiting:** Enforce a per-session limit (max 15 messages) to prevent API quota drain and malicious spamming.
 3. **Lead Extraction Precision:** Extract contact name, phone, entity type, and sector into Supabase `inquiries` and return a valid `RAO-2026-XXX` reference ID without halting the conversational flow.
-4. **WhatsApp URL Formatting:** Pre-fill Arabic message with proper URI encoding containing ref ID, contact info, and clear bullet points for Executive Management (`+966538881885`).
+4. **WhatsApp URL Formatting:** Pre-fill Arabic message with proper URI encoding containing ref ID, contact info, and clear bullet points for Executive Management (`+966 57 599 9956`).
 5. **Mobile Responsiveness (375px+):** Floating widget and drawer must not cause horizontal scroll, must close smoothly on backdrops or exit buttons, and must keep keyboard inputs accessible on touch devices.
 
 ---
@@ -141,7 +141,7 @@ describe("knowledgeBase", () => {
     expect(RAWASI_KNOWLEDGE_CONTEXT).toContain("التقنية والحلول الذكية");
     expect(RAWASI_KNOWLEDGE_CONTEXT).toContain("التشغيل والصيانة وإدارة المرافق");
     expect(RAWASI_KNOWLEDGE_CONTEXT).toContain("التنمية المجتمعية وتمكين القطاع غير الربحي");
-    expect(RAWASI_KNOWLEDGE_CONTEXT).toContain("966538881885");
+    expect(RAWASI_KNOWLEDGE_CONTEXT).toContain("966575999956");
   });
 
   it("enforces no-slop architectural rules and price guardrails", () => {

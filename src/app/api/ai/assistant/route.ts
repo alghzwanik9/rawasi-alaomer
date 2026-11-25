@@ -9,7 +9,7 @@ import { SEEDED_INQUIRIES } from "@/data/portalSeed";
 
 // In-memory rate limiting map: sessionId/IP -> { count, expiresAt }
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
-const MAX_REQUESTS_PER_WINDOW = 20;
+const MAX_REQUESTS_PER_WINDOW = 25;
 const rateLimitMap = new Map<string, { count: number; expiresAt: number }>();
 
 function checkRateLimit(key: string): { allowed: boolean; remaining: number } {
@@ -226,6 +226,167 @@ async function persistAssistantLead(args: {
   };
 }
 
+/**
+ * Smart contextual fallback engine when Gemini API is unconfigured or during temporary outages.
+ * Guarantees dynamic, intelligent answers instead of repeating a single static string.
+ */
+function getSmartFallbackResponse(userPrompt: string): {
+  reply: string;
+  leadCreated?: any;
+  suggestions: string[];
+} {
+  const p = userPrompt.toLowerCase();
+
+  // 1. Contact / WhatsApp intent
+  if (
+    p.includes("واتساب") ||
+    p.includes("تواصل") ||
+    p.includes("اتصال") ||
+    p.includes("رقم") ||
+    p.includes("هاتف")
+  ) {
+    const directUrl =
+      "https://wa.me/966538881885?text=" +
+      encodeURIComponent(
+        "السلام عليكم ورحمة الله، تواصلت عبر منصة رواسي العمر وأرغب في استشارة الإدارة التنفيذية بخصوص مشروعي."
+      );
+    return {
+      reply: `يسعدنا تواصلكم المباشر مع **الإدارة التنفيذية لشركة رواسي العمر** 🏛️
+فريقنا الهندسي والاستشاري متاح لخدمتكم ومناقشة تفاصيل المشروع، أو تحديد موعد اجتماع عمل (حضوري أو عن بُعد).
+
+**رقم الاتصال والواتساب المباشر:**
+[+966538881885](${directUrl})
+
+يمكنكم النقر على الزر أدناه للانتقال الفوري إلى المحادثة مع الإدارة.`,
+      leadCreated: {
+        refId: "RAO-DIRECT",
+        contactName: "الإدارة التنفيذية",
+        contactPhone: "+966538881885",
+        whatsappUrl: directUrl,
+      },
+      suggestions: [
+        "المقاولات والتطوير الإنشائي",
+        "أدلة ونماذج مرجع الجمعيات",
+        "تأهيل مقر وقفي",
+      ],
+    };
+  }
+
+  // 2. Contracting & Construction
+  if (
+    p.includes("مقاول") ||
+    p.includes("بناء") ||
+    p.includes("إنشاء") ||
+    p.includes("ترميم") ||
+    p.includes("تأهيل") ||
+    p.includes("تشطيب")
+  ) {
+    return {
+      reply: `يتولى **قطاع المقاولات والتطوير الإنشائي** في رواسي العمر تنفيذ وتهيئة المقرات المؤسسية والمباني الوقفية والمراكز التجارية بنموذج **تسليم المفتاح**:
+- الأعمال الإنشائية والهيكلية المتكاملة.
+- إعادة التأهيل المعماري والترميم الذكي للمقرات القائمة.
+- أعمال التشطيبات الفاخرة والهويات المكانية.
+- أنظمة السلامة والدفاع المدني والكهروميكانيك (MEP).
+
+*المخرجات:* تصاميم معتمدة، رخص بناء، جدول كميات شفاف (BOQ)، وإشراف هندسي ميداني موثق.`,
+      suggestions: [
+        "طلب تسعير ودراسة مشروع",
+        "التجهيز والتوريد المتكامل",
+        "التواصل عبر واتساب",
+      ],
+    };
+  }
+
+  // 3. Marjea & Non-profit Licensing
+  if (
+    p.includes("جمعية") ||
+    p.includes("تأسيس") ||
+    p.includes("ترخيص") ||
+    p.includes("حوكمة") ||
+    p.includes("وقف") ||
+    p.includes("أوقاف")
+  ) {
+    return {
+      reply: `توفر رواسي العمر **6 مسارات تخصصية متكاملة لتمكين القطاع غير الربحي والأوقاف**:
+1. **التأسيس والتراخيص:** استيفاء متطلبات المركز الوطني لتنمية القطاع غير الربحي.
+2. **الحوكمة واللوائح:** إعداد وتحديث اللوائح الأساسية ومعايير الامتثال والشفافية.
+3. **الأوقاف والوصايا:** صياغة لوائح النظارة وتطوير الأصول الوقفية المدرة للدخل.
+4. **الاعتماد الحكومي:** التأهيل للتسجيل في منصة إحسان والمنابر الرسمية.
+
+يمكنك تصفح الأدلة التفصيلية مجاناً عبر بوابة **مرجع الجمعيات** في المنصة.`,
+      suggestions: [
+        "أدلة ونماذج مرجع الجمعيات",
+        "تأسيس وترخيص جمعية أهلية",
+        "التواصل مع مستشار الحوكمة",
+      ],
+    };
+  }
+
+  // 4. Downloadable Templates
+  if (
+    p.includes("نماذج") ||
+    p.includes("مرجع") ||
+    p.includes("تحميل") ||
+    p.includes("ملف") ||
+    p.includes("وورد") ||
+    p.includes("pdf")
+  ) {
+    return {
+      reply: `توفر منصة **مرجع الجمعيات** أكثر من **18 نموذجاً معتمداً بصيغ OpenXML حقيقية** (.docx و .xlsx و .pdf) جاهزة للتحميل الفوري:
+- نموذج عقد اجتماع الجمعية العمومية ومحاضر الاجتماع.
+- لائحة تنظيم مجلس الإدارة واللجان المنبثقة.
+- نموذج خطة جمع التبرعات والحملات التنموية.
+- نماذج فتح الحسابات البنكية والتفويضات المزدوجة.
+
+جميع النماذج مجهزة بترويسة الشركة وخانات التعبئة النظامية وقابلة للتعديل.`,
+      suggestions: [
+        "الانتقال إلى مرجع الجمعيات",
+        "تأسيس وترخيص جمعية",
+        "التواصل عبر واتساب",
+      ],
+    };
+  }
+
+  // 5. Procurement & Supply
+  if (
+    p.includes("توريد") ||
+    p.includes("تجهيز") ||
+    p.includes("أثاث") ||
+    p.includes("مكاتب")
+  ) {
+    return {
+      reply: `يقدم **قطاع التجهيز والتوريد المتكامل** حلولاً شاملة لتأثيث وتجهيز المقرات المؤسسية:
+- تأثيث المكاتب الإدارية والقاعات الذكية وأنظمة العرض والصوتيات.
+- توريد التجهيزات التقنية والمكتبية المعتمدة مع الضمانات الرسمية.
+- تجهيز مراكز التدريب والمساحات المجتمعية التفاعلية.`,
+      suggestions: [
+        "المقاولات والتطوير الإنشائي",
+        "طلب تأهيل وتجهيز مقر",
+        "التواصل عبر واتساب",
+      ],
+    };
+  }
+
+  // General fallback
+  return {
+    reply: `أهلاً بك في **رواسي العمر للاستشارات والتنفيذ المتكامل** ("جهة واحدة، مسار واضح") 🏛️
+نحن نجمع بين التخطيط الهندسي الاستشاري، الحوكمة المؤسسية، والتنفيذ الميداني المتكامل في 5 قطاعات رئيسية:
+1. المقاولات والتطوير الإنشائي
+2. التجهيز والتوريد المتكامل
+3. التقنية والحلول الذكية
+4. التشغيل والصيانة وإدارة المرافق
+5. تمكين الجمعيات الأهلية وحوكمة الأوقاف
+
+تفضل باختيار موضوع استفسارك أو اكتب تفاصيل مشروعك لنساعدك فوراً.`,
+    suggestions: [
+      "المقاولات والتطوير الإنشائي",
+      "أدلة ونماذج مرجع الجمعيات",
+      "تجهيز وتأثيث مقرات",
+      "التواصل عبر واتساب",
+    ],
+  };
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json().catch(() => null);
@@ -260,29 +421,31 @@ export async function POST(req: NextRequest) {
 
     const userPrompt = lastUserMessage?.content || "";
 
-    // If Gemini is unconfigured, return resilient fallback response
+    // If Gemini is unconfigured or key is not provided yet, use smart contextual fallback
     if (!isGeminiConfigured()) {
+      const fallbackData = getSmartFallbackResponse(userPrompt);
       return NextResponse.json({
         success: true,
-        reply:
-          "أهلاً بك في منصة رواسي العمر للاستشارات والتنفيذ المتكامل. نحن هنا لمساعدتك في مشاريع المقاولات، التجهيز والتوريد، التقنية، إدارة المرافق، وحلول الجمعيات والأوقاف. يمكنك تصفح خدماتنا أو التواصل المباشر مع إدارتنا التنفيذية عبر الواتساب.",
+        reply: fallbackData.reply,
+        leadCreated: fallbackData.leadCreated,
         fallback: true,
-        suggestions: [
-          "المقاولات والتطوير الإنشائي",
-          "أدلة ونماذج مرجع الجمعيات",
-          "طلب تأهيل مشروع جديد",
-          "التواصل عبر واتساب",
-        ],
+        suggestions: fallbackData.suggestions,
       });
     }
 
     const client = getGeminiClient();
     if (!client) {
-      throw new Error("Unable to initialize Gemini client");
+      const fallbackData = getSmartFallbackResponse(userPrompt);
+      return NextResponse.json({
+        success: true,
+        reply: fallbackData.reply,
+        leadCreated: fallbackData.leadCreated,
+        fallback: true,
+        suggestions: fallbackData.suggestions,
+      });
     }
 
     // Convert messages format for Gemini
-    // Filter history to last 8 turns to stay focused and fast
     const recentMessages = body.messages.slice(-8);
     const contents = recentMessages.map((m: { role: string; content: string }) => ({
       role: m.role === "assistant" || m.role === "model" ? "model" : "user",
@@ -313,13 +476,13 @@ export async function POST(req: NextRequest) {
     }
 
     if (!geminiResponse) {
-      // Graceful offline degradation
+      const fallbackData = getSmartFallbackResponse(userPrompt);
       return NextResponse.json({
         success: true,
-        reply:
-          "نعتذر عن التأخير المؤقت في معالجة طلبك الذكي نظراً لضغط الاستعلامات. فريق رواسي العمر متاح حالياً لاستلام طلبك مباشرة عبر واتساب الإدارة التنفيذية (+966538881885).",
+        reply: fallbackData.reply,
+        leadCreated: fallbackData.leadCreated,
         fallback: true,
-        suggestions: ["المتابعة عبر واتساب", "حساب تكلفة مشروع", "مرجع الجمعيات"],
+        suggestions: fallbackData.suggestions,
       });
     }
 

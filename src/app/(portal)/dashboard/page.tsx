@@ -17,6 +17,9 @@ import {
   ExternalLink,
   Users,
   TrendingUp,
+  Briefcase,
+  Target,
+  ShieldCheck,
 } from "lucide-react";
 import { InquiryRecord } from "@/app/api/inquiries/route";
 import { PROCEDURES_DATA } from "@/data/marjeaSeed";
@@ -214,6 +217,90 @@ export default function DashboardOverviewPage() {
           <p className="text-[11px] text-[#526071]">
             معتمدة بنظام الصانع والمراجع (Maker-Checker)
           </p>
+        </div>
+      </div>
+
+      {/* ENTERPRISE GOVERNANCE & OPERATIONS MODULES */}
+      <div className="bg-white rounded-2xl border border-[#E2ECF5] p-5 sm:p-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+          <div>
+            <h3 className="text-lg font-bold text-[#163063] flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-[#2360A5]" />
+              <span>منظومة الحوكمة والتشغيل المؤسسي</span>
+            </h3>
+            <p className="text-xs text-[#526071] mt-0.5">
+              الوحدات المركزية لإدارة الموارد البشرية، المشاريع، المبادرات التنموية وسجلات الرقابة
+            </p>
+          </div>
+          <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#163063]/10 text-[#163063] self-start sm:self-auto">
+            مفعل بنظام الصلاحيات
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            href="/dashboard/hr"
+            className="group p-4 rounded-xl border border-[#E2ECF5] bg-[#F2F8FC]/50 hover:bg-[#F2F8FC] hover:border-[#2360A5]/30 transition-all shadow-xs hover:shadow-sm"
+          >
+            <div className="w-10 h-10 rounded-lg bg-[#163063]/10 text-[#163063] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <Users className="w-5 h-5" />
+            </div>
+            <h4 className="text-sm font-bold text-[#163063] mb-1 group-hover:text-[#2360A5] transition-colors flex items-center justify-between">
+              <span>الموارد البشرية والدوام</span>
+              <ArrowLeft className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all text-[#2360A5]" />
+            </h4>
+            <p className="text-xs text-[#526071] leading-relaxed">
+              تسجيل الحضور الذاتي، ساعات العمل، وطلبات الإجازات ودليل الموظفين.
+            </p>
+          </Link>
+
+          <Link
+            href="/dashboard/projects"
+            className="group p-4 rounded-xl border border-[#E2ECF5] bg-[#F2F8FC]/50 hover:bg-[#F2F8FC] hover:border-[#2360A5]/30 transition-all shadow-xs hover:shadow-sm"
+          >
+            <div className="w-10 h-10 rounded-lg bg-[#2360A5]/10 text-[#2360A5] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <Briefcase className="w-5 h-5" />
+            </div>
+            <h4 className="text-sm font-bold text-[#163063] mb-1 group-hover:text-[#2360A5] transition-colors flex items-center justify-between">
+              <span>معرض المشاريع</span>
+              <ArrowLeft className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all text-[#2360A5]" />
+            </h4>
+            <p className="text-xs text-[#526071] leading-relaxed">
+              محفظة مشاريع تسليم المفتاح، صور قبل/بعد، والنشر بالبوابة العامة.
+            </p>
+          </Link>
+
+          <Link
+            href="/dashboard/initiatives"
+            className="group p-4 rounded-xl border border-[#E2ECF5] bg-[#F2F8FC]/50 hover:bg-[#F2F8FC] hover:border-[#3488C4]/30 transition-all shadow-xs hover:shadow-sm"
+          >
+            <div className="w-10 h-10 rounded-lg bg-[#3488C4]/10 text-[#3488C4] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <Target className="w-5 h-5" />
+            </div>
+            <h4 className="text-sm font-bold text-[#163063] mb-1 group-hover:text-[#3488C4] transition-colors flex items-center justify-between">
+              <span>المبادرات والأثر</span>
+              <ArrowLeft className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all text-[#3488C4]" />
+            </h4>
+            <p className="text-xs text-[#526071] leading-relaxed">
+              تتبع المبادرات التنموية، المستفيدين، ومؤشر العائد الاجتماعي SROI.
+            </p>
+          </Link>
+
+          <Link
+            href="/dashboard/governance"
+            className="group p-4 rounded-xl border border-[#E2ECF5] bg-[#F2F8FC]/50 hover:bg-[#F2F8FC] hover:border-[#47A3B8]/30 transition-all shadow-xs hover:shadow-sm"
+          >
+            <div className="w-10 h-10 rounded-lg bg-[#47A3B8]/10 text-[#47A3B8] flex items-center justify-center mb-3 group-hover:scale-105 transition-transform">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <h4 className="text-sm font-bold text-[#163063] mb-1 group-hover:text-[#47A3B8] transition-colors flex items-center justify-between">
+              <span>الحوكمة والرقابة</span>
+              <ArrowLeft className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all text-[#47A3B8]" />
+            </h4>
+            <p className="text-xs text-[#526071] leading-relaxed">
+              سجل التدقيق اللحظي، مصفوفة الصلاحيات RBAC ومستودع السياسات.
+            </p>
+          </Link>
         </div>
       </div>
 

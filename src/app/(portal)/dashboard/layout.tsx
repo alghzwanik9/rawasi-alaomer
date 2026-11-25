@@ -18,6 +18,10 @@ import {
   ShieldAlert,
   Bell,
   CheckCircle2,
+  Clock,
+  Briefcase,
+  Target,
+  ShieldCheck,
 } from "lucide-react";
 import {
   DEMO_USERS,
@@ -87,9 +91,29 @@ export default function DashboardLayout({
       icon: <Inbox className="w-5 h-5" />,
     },
     {
+      label: "الموارد البشرية والدوام",
+      href: "/dashboard/hr",
+      icon: <Clock className="w-5 h-5" />,
+    },
+    {
+      label: "معرض المشاريع",
+      href: "/dashboard/projects",
+      icon: <Briefcase className="w-5 h-5" />,
+    },
+    {
+      label: "المبادرات والأثر",
+      href: "/dashboard/initiatives",
+      icon: <Target className="w-5 h-5" />,
+    },
+    {
       label: "إدارة مرجع الجمعيات (CMS)",
       href: "/dashboard/marjea-cms",
       icon: <BookOpenCheck className="w-5 h-5" />,
+    },
+    {
+      label: "الحوكمة والرقابة",
+      href: "/dashboard/governance",
+      icon: <ShieldCheck className="w-5 h-5" />,
     },
     {
       label: "فريق العمل والصلاحيات",
